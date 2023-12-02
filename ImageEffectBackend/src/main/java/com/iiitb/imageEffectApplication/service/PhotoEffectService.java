@@ -24,8 +24,6 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
             // ACTUAL WORK STARTS HERE
 
             // TODO
@@ -58,14 +56,13 @@ public class PhotoEffectService {
             try {
                 brightnessEffect.setParameterValue(amount);
                 System.out.println("Brightness value set.");
+                System.out.println("Brightness value");
             } catch (IllegalParameterException e) {
                 System.err.println("Error received: " + e.getMessage());
             }
             Pixel[][] modifiedImage = brightnessEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
             System.out.println("Brightness effect applied successfully.");
             // ACTUAL WORK ENDS HERE
-
-
 
             return processingUtils.postProcessing(modifiedImage);
 
