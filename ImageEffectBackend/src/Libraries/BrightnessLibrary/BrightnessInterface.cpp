@@ -47,7 +47,7 @@ JNIEXPORT jobjectArray JNICALL Java_com_iiitb_driveProject_libraryInterfaces_Bri
     }
 
     // Call the function here
-    applyBrightness(imageVector, static_cast<float>(amount));
+//    applyBrightness(imageVector, static_cast<float>(amount));
     // TODO
 
     int nrows = imageVector.size();
