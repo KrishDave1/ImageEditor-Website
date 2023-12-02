@@ -1,7 +1,7 @@
 #include "Brightness.h"
 
 void applyBrightness(vector<vector<Pixel>> &image, float amount) {
-    for (int i = 0; i < image.size(); i++)
+    for (int i = 0; i < image.size(); i++)  
     {
         for (int j = 0; j < image[i].size(); j++)
         {
