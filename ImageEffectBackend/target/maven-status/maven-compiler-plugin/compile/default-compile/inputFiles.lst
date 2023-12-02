@@ -3,6 +3,7 @@
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/Pixel.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/LoggingService.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/config/WebConfig.java
+/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/BrightnessEffect.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/LoadNativeLibrary.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/RotationInterface.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/GaussianBlurInterface.java
