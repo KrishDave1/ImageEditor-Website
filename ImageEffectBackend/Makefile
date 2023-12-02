@@ -1,5 +1,9 @@
 CC = g++
-JAVA_HOME = /Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home
+# JAVA_HOME = /Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home
+
+# JAVA_HOME = /mnt/c/C:\Program Files\Eclipse Adoptium\jdk-17.0.8.101-hotspot
+JAVA_HOME = /usr/lib/jvm/java-17-openjdk-amd64
+
 
 HUE_SATURATION_LIBRARY_DESTINATION = ./src/Libraries/HueSaturationLibrary
 HUE_SATURATION_CPP_SRC = ./src/Libraries/HueSaturationLibrary/HueSaturation.cpp ./src/Libraries/HueSaturationLibrary/HueSaturationInterface.cpp
