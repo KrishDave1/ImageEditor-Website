@@ -2,6 +2,8 @@ package com.iiitb.imageEffectApplication.service;
 
 import com.iiitb.imageEffectApplication.effectImplementation.BrightnessEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.GrayscaleEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.ContrastEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.SepiaEffect;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
@@ -11,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
+import java.util.ConcurrentModificationException;
 
 @Service
 public class PhotoEffectService {
@@ -83,7 +86,13 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            ContrastEffect contrastEffect = new ContrastEffect();
+            try {
+                contrastEffect.setParameterValue(amount);
+            } catch (IllegalParameterException e) {
+                System.err.println("Received an error: " + e.getMessage());
+            }
+            Pixel[][] modifiedImage = contrastEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -220,6 +229,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
+
             Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
@@ -240,7 +250,8 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            SepiaEffect sepiaEffect = new SepiaEffect();
+            Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
