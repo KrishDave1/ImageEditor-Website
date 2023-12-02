@@ -54,13 +54,15 @@ public class PhotoEffectService {
 
             // TODO
             BrightnessEffect brightnessEffect = new BrightnessEffect();
+            System.out.println("Brightness class instantiated.");
             try {
                 brightnessEffect.setParameterValue(amount);
+                System.out.println("Brightness value set.");
             } catch (IllegalParameterException e) {
                 System.err.println("Error received: " + e.getMessage());
             }
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
-
+            Pixel[][] modifiedImage = brightnessEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            System.out.println("Brightness effect applied successfully.");
             // ACTUAL WORK ENDS HERE
 
 
