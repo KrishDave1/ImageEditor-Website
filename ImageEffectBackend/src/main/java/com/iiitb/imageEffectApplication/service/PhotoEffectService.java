@@ -229,8 +229,8 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            SepiaEffect sepiaEffect = new SepiaEffect();
+            Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -250,8 +250,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            SepiaEffect sepiaEffect = new SepiaEffect();
-            Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = inputImage;// Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
