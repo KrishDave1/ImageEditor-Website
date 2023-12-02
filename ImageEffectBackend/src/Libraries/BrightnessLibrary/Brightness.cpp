@@ -1,5 +1,6 @@
 #include "Brightness.h"
-#include <bits/stdc++.h>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
 void applyBrightness(vector<vector<Pixel>> &image, float amount) {
