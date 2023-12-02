@@ -13,9 +13,9 @@ void applyContrast(vector<vector<Pixel>> &image, float amount) {
             int midB = 255 / 2;
 
             // Adjust each RGB component individually
-            pixel.r = static_cast<int>((pixel.r - midR) * amount + midR);
-            pixel.g = static_cast<int>((pixel.g - midG) * amount + midG);
-            pixel.b = static_cast<int>((pixel.b - midB) * amount + midB);
+            pixel.r = static_cast<int>((pixel.r - midR) * 1.275 * (amount - 100) + midR);
+            pixel.g = static_cast<int>((pixel.g - midG) * 1.275 * (amount - 100) + midG);
+            pixel.b = static_cast<int>((pixel.b - midB) * 1.275 * (amount - 100) + midB);
 
             // Ensure that the values stay within the valid range [0, 255]
             pixel.r = max(0, min(255, pixel.r));
