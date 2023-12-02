@@ -23,5 +23,6 @@ com/iiitb/imageEffectApplication/exception/IllegalParameterException.class
 com/iiitb/imageEffectApplication/libraryInterfaces/RotationInterface.class
 com/iiitb/imageEffectApplication/controller/PhotoController.class
 com/iiitb/imageEffectApplication/baseEffects/PhotoEffect.class
+com/iiitb/imageEffectApplication/effectImplementation/GrayscaleEffect.class
 com/iiitb/imageEffectApplication/libraryInterfaces/GaussianBlurInterface.class
 com/iiitb/imageEffectApplication/libraryInterfaces/SepiaInterface.class

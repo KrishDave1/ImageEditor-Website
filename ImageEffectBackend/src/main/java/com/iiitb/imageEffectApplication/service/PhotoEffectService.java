@@ -1,6 +1,7 @@
 package com.iiitb.imageEffectApplication.service;
 
 import com.iiitb.imageEffectApplication.effectImplementation.BrightnessEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.GrayscaleEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.ContrastEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.SepiaEffect;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
@@ -162,7 +163,11 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+
+            GrayscaleEffect grayscaleEffect = new GrayscaleEffect();
+            System.out.println("Grayscale class instantiated.");
+            Pixel[][] modifiedImage = grayscaleEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            System.out.println("Grayscale effect applied successfully.");
 
             // ACTUAL WORK ENDS HERE
 
