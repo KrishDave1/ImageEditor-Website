@@ -4,7 +4,7 @@ public class BrightnessInterface {
     static {
         String libraryPath = "BrightnessLib";
 //        LoadNativeLibrary.loadNativeLibrary(libraryPath);
-        LoadNativeLibrary.loadNativeLibrary(libraryPath + ".so");
+        LoadNativeLibrary.loadNativeLibrary(libraryPath);
     }
     public static native Pixel[][] applyBrightness(Pixel[][] image, float amount);
 }
