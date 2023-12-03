@@ -1,11 +1,11 @@
-#include "com_iiitb_imageEffectApplication_libraryInterfaces_RotationInterface.h"
-#include "Rotation.h"
+#include "com_iiitb_imageEffectApplication_libraryInterfaces_DominantColourInterface.h"
+#include "DominantColour.h"
 #include "../Pixel.h"
 #include <vector>
 using namespace std;
 
-JNIEXPORT jobjectArray JNICALL Java_com_iiitb_imageEffectApplication_libraryInterfaces_RotationInterface_applyRotation
-  (JNIEnv * env, jclass jobj, jobjectArray image, jint value) {
+JNIEXPORT jobjectArray JNICALL Java_com_iiitb_imageEffectApplication_libraryInterfaces_DominantColourInterface_applyDominantColour
+  (JNIEnv * env, jclass jobj, jobjectArray image) {
 
     vector< vector<Pixel> > imageVector;
     jsize rows = env->GetArrayLength(image);
@@ -54,8 +54,17 @@ JNIEXPORT jobjectArray JNICALL Java_com_iiitb_imageEffectApplication_libraryInte
 
 
     // Call the function here
+    applyDominantColour(imageVector);
     // TODO
-    applyRotation(imageVector, value);
+
+
+
+
+
+
+
+
+
 
 
 

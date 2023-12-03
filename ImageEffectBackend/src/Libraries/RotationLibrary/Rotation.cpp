@@ -8,39 +8,67 @@
 #include <cmath>
 using namespace std;
 #define M_PI 3.14159265358979323846
+void rotatePixel(int& x, int& y, int width, int height, int angleDegrees) {
+    if (angleDegrees == 0) return; // If the angle is 0, no need to rotate
 
-void applyRotation(vector<vector<Pixel>> &image, int value) {
-    // Convert the angle to radians
+    float centerX = static_cast<float>(width - 1) / 2.0;
+    float centerY = static_cast<float>(height - 1) / 2.0;
+
+    float angleRad = static_cast<float>(angleDegrees) * M_PI / 180.0;
+
+    float newX = cos(angleRad) * (x - centerX) - sin(angleRad) * (y - centerY) + centerX;
+    float newY = sin(angleRad) * (x - centerX) + cos(angleRad) * (y - centerY) + centerY;
+
+    x = static_cast<int>(round(newX));
+    y = static_cast<int>(round(newY));
+}
+
+void applyRotation(vector<vector<Pixel>>& image, int value) {
+    int width = static_cast<int>(image.size());
+    if (width == 0) return;
+    int height = static_cast<int>(image[0].size());
+
     float angleRad = static_cast<float>(value) * M_PI / 180.0;
 
-    // Calculate the center of the image
-    float centerX = static_cast<float>(image.size() - 1) / 2.0;
-    float centerY = static_cast<float>(image[0].size() - 1) / 2.0;
+    float centerX = static_cast<float>(width - 1) / 2.0;
+    float centerY = static_cast<float>(height - 1) / 2.0;
 
-    // Create a new image buffer for the rotated image
-    vector<vector<Pixel>> rotatedImage(image.size(), vector<Pixel>(image[0].size()));
+    vector<vector<Pixel>> tempImage = image;
 
-    // Iterate through each pixel in the original image
-    for (int i = 0; i < image.size(); ++i) {
-        for (int j = 0; j < image[i].size(); ++j) {
-            // Calculate new coordinates after rotation
-            float x = static_cast<float>(i) - centerX;
-            float y = static_cast<float>(j) - centerY;
-            float newX = x * cos(angleRad) - y * sin(angleRad) + centerX;
-            float newY = x * sin(angleRad) + y * cos(angleRad) + centerY;
+    for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < height; ++j) {
+            int x = i;
+            int y = j;
 
-            // Calculate the corresponding coordinates in the original image
-            int originalX = static_cast<int>(newX + 0.5);
-            int originalY = static_cast<int>(newY + 0.5);
+            rotatePixel(x, y, width, height, value);
 
-            // Check boundaries to avoid out-of-bounds access
-            if (originalX >= 0 && originalX < image.size() && originalY >= 0 && originalY < image[0].size()) {
-                // Copy pixel values to the rotated image
-                rotatedImage[i][j] = image[originalX][originalY];
+            // Bilinear interpolation
+            int x0 = floor(x);
+            int x1 = x0 + 1;
+            int y0 = floor(y);
+            int y1 = y0 + 1;
+
+            if (x0 >= 0 && x1 < width && y0 >= 0 && y1 < height) {
+                float xFraction = x - x0;
+                float yFraction = y - y0;
+
+                for (int c = 0; c < 3; ++c) {
+                    float top = tempImage[x0][y0].r * (1 - xFraction) + tempImage[x1][y0].r * xFraction;
+                    float bottom = tempImage[x0][y1].r * (1 - xFraction) + tempImage[x1][y1].r * xFraction;
+                    float pixelValue = top * (1 - yFraction) + bottom * yFraction;
+                    image[i][j].r = static_cast<int>(pixelValue);
+
+                    top = tempImage[x0][y0].g * (1 - xFraction) + tempImage[x1][y0].g * xFraction;
+                    bottom = tempImage[x0][y1].g * (1 - xFraction) + tempImage[x1][y1].g * xFraction;
+                    pixelValue = top * (1 - yFraction) + bottom * yFraction;
+                    image[i][j].g = static_cast<int>(pixelValue);
+
+                    top = tempImage[x0][y0].b * (1 - xFraction) + tempImage[x1][y0].b * xFraction;
+                    bottom = tempImage[x0][y1].b * (1 - xFraction) + tempImage[x1][y1].b * xFraction;
+                    pixelValue = top * (1 - yFraction) + bottom * yFraction;
+                    image[i][j].b = static_cast<int>(pixelValue);
+                }
             }
         }
     }
-    // Update the original image with the rotated image
-    image = rotatedImage;
 }
-
