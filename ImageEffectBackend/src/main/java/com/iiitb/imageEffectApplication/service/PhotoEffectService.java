@@ -1,10 +1,6 @@
 package com.iiitb.imageEffectApplication.service;
 
-import com.iiitb.imageEffectApplication.effectImplementation.BrightnessEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.FlipEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.InvertEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.RotationEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.*;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
