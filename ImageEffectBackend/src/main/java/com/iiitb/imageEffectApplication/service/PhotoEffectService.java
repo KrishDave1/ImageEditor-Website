@@ -1,9 +1,6 @@
 package com.iiitb.imageEffectApplication.service;
 
-import com.iiitb.imageEffectApplication.effectImplementation.BrightnessEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.GrayscaleEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.ContrastEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.SepiaEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.*;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
@@ -204,11 +201,16 @@ public class PhotoEffectService {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
 
-
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            RotationEffect rotationEffect = new RotationEffect();
+            try {
+                rotationEffect.selectOptionValue(String.valueOf(value), value);
+            } catch (IllegalParameterException e) {
+                System.err.println("Error received: " + e.getMessage());
+            }
+            Pixel[][] modifiedImage = rotationEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
