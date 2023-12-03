@@ -137,7 +137,13 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            GaussianBlurEffect gaussianBlurEffect = new GaussianBlurEffect();
+            try {
+                gaussianBlurEffect.setParameterValue(radius);
+            } catch (IllegalParameterException e) {
+                System.err.println("Error received is: " + e.getMessage());
+            }
+            Pixel[][] modifiedImage = gaussianBlurEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
