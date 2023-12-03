@@ -102,8 +102,6 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-            System.out.println(horizontalFlipValue);
-            System.err.println(verticalFlipValue);
 
 
             // ACTUAL WORK STARTS HERE
@@ -170,9 +168,7 @@ public class PhotoEffectService {
             // TODO
 
             GrayscaleEffect grayscaleEffect = new GrayscaleEffect();
-            System.out.println("Grayscale class instantiated.");
             Pixel[][] modifiedImage = grayscaleEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
-            System.out.println("Grayscale effect applied successfully.");
 
             // ACTUAL WORK ENDS HERE
 
@@ -194,7 +190,6 @@ public class PhotoEffectService {
             // TODO
             InvertEffect invertEffect = new InvertEffect();
             Pixel[][] modifiedImage = invertEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
-            System.out.println("Modified image is ");
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
@@ -242,7 +237,6 @@ public class PhotoEffectService {
 
             Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName, loggingService); // Replace this with
                                                                                                 // actual modified image
-            System.out.println("Sepia effect applied successfully.");
 
             // ACTUAL WORK ENDS HERE
 
