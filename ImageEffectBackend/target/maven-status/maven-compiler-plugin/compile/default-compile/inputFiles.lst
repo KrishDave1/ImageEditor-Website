@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/DiscreteEffect.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/InvertEffect.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/BrightnessInterface.java
@@ -17,6 +16,7 @@
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/SingleValueParameterizableEffect.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/ContrastEffect.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/DominantColourInterface.java
+/mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/HueSaturationEffect.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/DominantColourEffect.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/exception/IllegalParameterException.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/Two_ValueDiscreteEffect.java
@@ -35,83 +35,6 @@
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/FlipInterface.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/PhotoEffectService.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/InvertInterface.java
+/mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/TwoValueParameterizableEffect.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/SepiaEffect.java
 /mnt/c/Users/Dell/Desktop/JCA_Project/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/HueSaturationInterface.java
-=======
-<<<<<<< HEAD
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/GrayscaleEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/PhotoEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/FlipInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/RotationEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/SingleValueDiscreteEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/SharpenInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/BrightnessEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/LoggingService.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/PhotoEffectService.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/ParameterizableEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/DiscreteEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/SingleValueParameterizableEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/BrightnessInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/GrayscaleInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/RotationInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/controller/LogController.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/model/LogModel.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/config/WebConfig.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/Two_ValueDiscreteEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/utils/ProcessingUtils.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/ContrastInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/ImageEffectApplication.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/LoadNativeLibrary.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/SepiaEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/GaussianBlurInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/controller/PhotoController.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/SharpenEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/HueSaturationInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/Pixel.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/SepiaInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/exception/IllegalParameterException.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/ContrastEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/InvertEffect.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/InvertInterface.java
-/mnt/c/Users/ketan/OneDrive - iiit-b/Desktop/Sem-3/Programming-2/ImageEditor Website/ImageEditor-Website/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/FlipEffect.java
-=======
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/SharpenEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/ContrastInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/SingleValueDiscreteEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/Pixel.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/LoggingService.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/config/WebConfig.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/BrightnessEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/TwoValueParameterizableEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/LoadNativeLibrary.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/RotationInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/GaussianBlurInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/HueSaturationInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/exception/IllegalParameterException.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/SharpenInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/ContrastEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/FlipEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/DiscreteEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/PhotoEffectService.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/GrayscaleInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/FlipInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/RotationEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/BrightnessInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/HueSaturationEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/ParameterizableEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/GaussianBlurEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/PhotoEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/controller/LogController.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/InvertEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/SepiaEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/SingleValueParameterizableEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/model/LogModel.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/SepiaInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/utils/ProcessingUtils.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/InvertInterface.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/controller/PhotoController.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/Two_ValueDiscreteEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/GrayscaleEffect.java
-/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/ImageEffectApplication.java
->>>>>>> 164b8a91bfbdedd38c7072c35bfd37fb3b065106
->>>>>>> cfc05cb9b7e452c41f91dc12ef75722952d542af

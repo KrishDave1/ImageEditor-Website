@@ -22,7 +22,6 @@ public class LoggingService {
         String formattedTime = currentTime.format(formatter);
         LogModel logModel = new LogModel(formattedTime, fileName, effectName, optionValues);
         logs.add(logModel);
-        System.out.println("Timestamp = " + logModel.getTimestamp() + " file name " + logModel.getFilename() + " effect name " + logModel.getFilename() + " optionvalues = " + logModel.getOptionValues());
     }
 
     public List<LogModel> getAllLogs() {

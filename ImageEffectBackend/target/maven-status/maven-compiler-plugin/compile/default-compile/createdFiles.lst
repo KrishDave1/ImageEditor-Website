@@ -1,15 +1,10 @@
 com/iiitb/imageEffectApplication/effectImplementation/SepiaEffect.class
 com/iiitb/imageEffectApplication/ImageEffectApplication.class
 com/iiitb/imageEffectApplication/effectImplementation/InvertEffect.class
-<<<<<<< HEAD
-com/iiitb/imageEffectApplication/libraryInterfaces/ContrastInterface.class
-com/iiitb/imageEffectApplication/libraryInterfaces/HueSaturationInterface.class
-com/iiitb/imageEffectApplication/effectImplementation/DominantColourEffect.class
-=======
 com/iiitb/imageEffectApplication/effectImplementation/HueSaturationEffect.class
 com/iiitb/imageEffectApplication/libraryInterfaces/ContrastInterface.class
 com/iiitb/imageEffectApplication/libraryInterfaces/HueSaturationInterface.class
->>>>>>> cfc05cb9b7e452c41f91dc12ef75722952d542af
+com/iiitb/imageEffectApplication/effectImplementation/DominantColourEffect.class
 com/iiitb/imageEffectApplication/baseEffects/ParameterizableEffect.class
 com/iiitb/imageEffectApplication/exception/IllegalParameterException.class
 com/iiitb/imageEffectApplication/effectImplementation/RotationEffect.class
@@ -41,12 +36,5 @@ com/iiitb/imageEffectApplication/controller/PhotoController.class
 com/iiitb/imageEffectApplication/effectImplementation/ContrastEffect.class
 com/iiitb/imageEffectApplication/effectImplementation/SharpenEffect.class
 com/iiitb/imageEffectApplication/baseEffects/PhotoEffect.class
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-com/iiitb/imageEffectApplication/effectImplementation/RotationEffect.class
-=======
->>>>>>> 164b8a91bfbdedd38c7072c35bfd37fb3b065106
->>>>>>> cfc05cb9b7e452c41f91dc12ef75722952d542af
 com/iiitb/imageEffectApplication/effectImplementation/GrayscaleEffect.class
 com/iiitb/imageEffectApplication/libraryInterfaces/GaussianBlurInterface.class
