@@ -28,14 +28,17 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
-
+            HueSaturationEffect hueSaturationEffect = new HueSaturationEffect();
+            try {
+                hueSaturationEffect.setParameterValue(hueAmount, saturationAmount);
+            } catch (IllegalParameterException e) {
+                System.err.println("Error received: " + e.getMessage());
+            }
+            Pixel[][] modifiedImage = hueSaturationEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
             return processingUtils.postProcessing(modifiedImage);
-
-        } catch (IOException e) {
+        } // Replace this with actual modified image
+          // ACTUAL WORK ENDS HERE
+        catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -102,8 +105,6 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-            System.out.println(horizontalFlipValue);
-            System.err.println(verticalFlipValue);
 
 
             // ACTUAL WORK STARTS HERE
@@ -139,7 +140,13 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            GaussianBlurEffect gaussianBlurEffect = new GaussianBlurEffect();
+            try {
+                gaussianBlurEffect.setParameterValue(radius);
+            } catch (IllegalParameterException e) {
+                System.err.println("Error received is: " + e.getMessage());
+            }
+            Pixel[][] modifiedImage = gaussianBlurEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -164,9 +171,7 @@ public class PhotoEffectService {
             // TODO
 
             GrayscaleEffect grayscaleEffect = new GrayscaleEffect();
-            System.out.println("Grayscale class instantiated.");
             Pixel[][] modifiedImage = grayscaleEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
-            System.out.println("Grayscale effect applied successfully.");
 
             // ACTUAL WORK ENDS HERE
 
@@ -188,7 +193,6 @@ public class PhotoEffectService {
             // TODO
             InvertEffect invertEffect = new InvertEffect();
             Pixel[][] modifiedImage = invertEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
-            System.out.println("Modified image is ");
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);

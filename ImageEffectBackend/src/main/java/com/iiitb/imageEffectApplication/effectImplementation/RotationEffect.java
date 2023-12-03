@@ -13,7 +13,7 @@ public class RotationEffect implements DiscreteEffect {
     public void selectOptionValue(String optionName, int value) throws IllegalParameterException {
         // Implementation of the selectOptionValue method goes here
         if (value < 0 || value > 3){
-            throw new IllegalParameterException("Value can be 0,90,180,270");
+            throw new IllegalParameterException("Value can be 0, 90, 180 or 270.");
         }
         this.Degree = value*90;
     }
