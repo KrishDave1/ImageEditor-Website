@@ -17,12 +17,8 @@ public class HueSaturationEffect implements TwoValueParameterizableEffect{
 
     @Override
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        System.out.println("Applying HueSaturationEffect");
-        loggingService.addLog(fileName, "HueSaturation",
-                String.valueOf(this.hueAmount) + " " + String.valueOf(this.saturationAmount));
-        System.out.println("Received the parameter value as " + this.hueAmount + " " + this.saturationAmount);
-        return HueSaturationInterface.applyHueSaturation(image,
-                this.hueAmount, this.saturationAmount);
+        loggingService.addLog(fileName, "Hue saturation", String.valueOf(this.hueAmount) + " " + String.valueOf(this.saturationAmount));
+        return HueSaturationInterface.applyHueSaturation(image, this.hueAmount, this.saturationAmount);
     }
 
     @Override

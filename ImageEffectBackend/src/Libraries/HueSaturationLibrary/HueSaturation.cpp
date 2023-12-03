@@ -44,15 +44,24 @@ void applyHueSaturation(vector<vector<Pixel>> &image, float saturationValue, flo
                 hue += 360.0;
             }
 
+            // Apply adjustments
+            hue += hueValue;
+
+            // Ensure hue is in the range [0, 360)
+            if (hue < 0.0)
+            {
+                hue += 360.0;
+            }
+            else if (hue >= 360.0)
+            {
+                hue -= 360.0;
+            }
+
             // Calculate saturation
             float saturation = (cmax == 0.0) ? 0.0 : (delta / cmax);
 
-            // Apply adjustments
-            hue += hueValue;
+            // Apply saturation adjustment
             saturation += saturationValue;
-
-            // Ensure hue is in the range [0, 360)
-            hue = fmod(hue, 360.0);
 
             // Ensure saturation is in the range [0, 1]
             saturation = fmin(fmax(saturation, 0.0), 1.0);

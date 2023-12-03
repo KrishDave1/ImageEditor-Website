@@ -14,9 +14,7 @@ public class GrayscaleEffect implements PhotoEffect {
 
     @Override
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        System.out.println("Applying grayscale effect");
         loggingService.addLog(fileName, "Grayscale", "None");
-        System.out.println("Received the parameter value as " + this.parameterValue);
         return GrayscaleInterface.applyGrayscale(image);
     }
 }

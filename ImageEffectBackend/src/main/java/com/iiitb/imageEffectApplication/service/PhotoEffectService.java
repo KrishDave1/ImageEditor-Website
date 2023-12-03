@@ -85,7 +85,7 @@ public class PhotoEffectService {
             try {
                 contrastEffect.setParameterValue(amount);
             } catch (IllegalParameterException e) {
-                System.err.println("Received an error: " + e.getMessage());
+                System.err.println("Error received: " + e.getMessage());
             }
             Pixel[][] modifiedImage = contrastEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
@@ -115,7 +115,7 @@ public class PhotoEffectService {
                 flipEffect.setParameters(horizontalFlipValue, verticalFlipValue);
             }
             catch(IllegalParameterException e){
-                System.err.println("Recieved Error " + e.getMessage());
+                System.err.println("Error received: " + e.getMessage());
             }
             Pixel[][] modifiedImage = flipEffect.apply(inputImage, imageName, loggingService);
             // ACTUAL WORK ENDS HERE
@@ -144,7 +144,7 @@ public class PhotoEffectService {
             try {
                 gaussianBlurEffect.setParameterValue(radius);
             } catch (IllegalParameterException e) {
-                System.err.println("Error received is: " + e.getMessage());
+                System.err.println("Error received: " + e.getMessage());
             }
             Pixel[][] modifiedImage = gaussianBlurEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
@@ -215,7 +215,7 @@ public class PhotoEffectService {
                 rotationEffect.selectOptionValue(imageName, value);
             }
             catch (IllegalParameterException e){
-                System.err.println("Recieved Error " + e.getMessage());
+                System.err.println("Error received: " + e.getMessage());
             }
             Pixel[][] modifiedImage = rotationEffect.apply(inputImage, imageName, loggingService);
             // ACTUAL WORK ENDS HERE
@@ -239,7 +239,6 @@ public class PhotoEffectService {
 
             Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName, loggingService); // Replace this with
                                                                                                // actual modified image
-            System.out.println("Sepia effect applied successfully.");
 
             // ACTUAL WORK ENDS HERE
 
