@@ -1,29 +1,28 @@
 package com.iiitb.imageEffectApplication.effectImplementation;
+
 import com.iiitb.imageEffectApplication.baseEffects.SingleValueParameterizableEffect;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
-import com.iiitb.imageEffectApplication.libraryInterfaces.BrightnessInterface;
+import com.iiitb.imageEffectApplication.libraryInterfaces.ContrastInterface;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.service.LoggingService;
 
-public class BrightnessEffect implements SingleValueParameterizableEffect {
+public class ContrastEffect implements SingleValueParameterizableEffect {
     private float parameterValue;
 
-    public BrightnessEffect() {
+    public ContrastEffect() {
         this.parameterValue = 0;
     }
 
     @Override
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        System.out.println("Applying brightness effect");
-        loggingService.addLog(fileName, "Brightness", String.valueOf(this.parameterValue));
-        System.out.println("Received the parameter value as " + this.parameterValue);
-        return BrightnessInterface.applyBrightness(image, this.parameterValue);
+        loggingService.addLog(fileName, "Contrast", String.valueOf(this.parameterValue));
+        return ContrastInterface.applyContrast(image, this.parameterValue);
     }
 
     @Override
     public void setParameterValue(float parameterValue) throws IllegalParameterException {
-        if (parameterValue < 0 || parameterValue > 200) {
-            throw new IllegalParameterException("Parameter value must be in the range -200 to 200.");
+        if (parameterValue > 200 || parameterValue < 0) {
+            throw new IllegalParameterException("Parameter value should be in the range 0 to 200.");
         }
         this.parameterValue = parameterValue;
     }
