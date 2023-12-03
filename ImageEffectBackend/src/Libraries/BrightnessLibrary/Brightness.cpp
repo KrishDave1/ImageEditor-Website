@@ -18,9 +18,7 @@ void applyBrightness(vector<vector<Pixel>> &image, float amount) {
             pixel.g = max(0, min(255, pixel.g));
             pixel.b = max(0, min(255, pixel.b));
         }
-
     }
-
 }
 
 

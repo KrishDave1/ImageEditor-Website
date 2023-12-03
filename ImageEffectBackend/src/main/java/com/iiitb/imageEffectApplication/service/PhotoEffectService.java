@@ -1,6 +1,10 @@
 package com.iiitb.imageEffectApplication.service;
 
-import com.iiitb.imageEffectApplication.effectImplementation.*;
+import com.iiitb.imageEffectApplication.effectImplementation.BrightnessEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.FlipEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.InvertEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.RotationEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
@@ -50,19 +54,14 @@ public class PhotoEffectService {
 
 
             // ACTUAL WORK STARTS HERE
-
             // TODO
             BrightnessEffect brightnessEffect = new BrightnessEffect();
-            System.out.println("Brightness class instantiated.");
             try {
                 brightnessEffect.setParameterValue(amount);
-                System.out.println("Brightness value set.");
-                System.out.println("Brightness value");
             } catch (IllegalParameterException e) {
                 System.err.println("Error received: " + e.getMessage());
             }
             Pixel[][] modifiedImage = brightnessEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
-            System.out.println("Brightness effect applied successfully.");
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
@@ -107,14 +106,21 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
+            System.out.println(horizontalFlipValue);
+            System.err.println(verticalFlipValue);
 
 
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
-
+            FlipEffect flipEffect = new FlipEffect();
+            try {
+                flipEffect.setParameters(horizontalFlipValue, verticalFlipValue);
+            }
+            catch(IllegalParameterException e){
+                System.err.println("Recieved Error " + e.getMessage());
+            }
+            Pixel[][] modifiedImage = flipEffect.apply(inputImage, imageName, loggingService);
             // ACTUAL WORK ENDS HERE
 
 
@@ -190,8 +196,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
-
+            InvertEffect invertEffect = new InvertEffect();
+            Pixel[][] modifiedImage = invertEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            System.out.println("Modified image is ");
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
@@ -212,15 +219,13 @@ public class PhotoEffectService {
             // TODO
             RotationEffect rotationEffect = new RotationEffect();
             try {
-                rotationEffect.selectOptionValue(String.valueOf(value), value);
-            } catch (IllegalParameterException e) {
-                System.err.println("Error received: " + e.getMessage());
+                rotationEffect.selectOptionValue(imageName, value);
             }
-            Pixel[][] modifiedImage = rotationEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
-
+            catch (IllegalParameterException e){
+                System.err.println("Recieved Error " + e.getMessage());
+            }
+            Pixel[][] modifiedImage = rotationEffect.apply(inputImage, imageName, loggingService);
             // ACTUAL WORK ENDS HERE
-
-
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
@@ -238,7 +243,10 @@ public class PhotoEffectService {
 
             // TODO
             SepiaEffect sepiaEffect = new SepiaEffect();
-            Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+
+            Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName, loggingService); // Replace this with
+                                                                                                // actual modified image
+            System.out.println("Sepia effect applied successfully.");
 
             // ACTUAL WORK ENDS HERE
 
@@ -256,14 +264,16 @@ public class PhotoEffectService {
             String imageName = imageFile.getOriginalFilename();
 
             // ACTUAL WORK STARTS HERE
-
+            SharpenEffect sharpenEffect = new SharpenEffect();
             // TODO
-            Pixel[][] modifiedImage = inputImage;// Replace this with actual modified image
-
+            try {
+                sharpenEffect.setParameterValue(amount);
+            } catch (IllegalParameterException e) {
+                System.err.println("Error received: " + e.getMessage());
+            }
+            Pixel[][] modifiedImage = sharpenEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
             // ACTUAL WORK ENDS HERE
-
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

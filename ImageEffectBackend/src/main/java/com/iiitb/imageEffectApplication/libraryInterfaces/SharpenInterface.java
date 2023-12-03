@@ -1,8 +1,6 @@
 package com.iiitb.imageEffectApplication.libraryInterfaces;
 
 
-
-
 public class SharpenInterface {
     static {
         String libraryPath = "SharpenLib";
