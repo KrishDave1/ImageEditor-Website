@@ -49,6 +49,7 @@
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/PhotoEffectService.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/GrayscaleInterface.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/FlipInterface.java
+/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/RotationEffect.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/BrightnessInterface.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/ParameterizableEffect.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/PhotoEffect.java
