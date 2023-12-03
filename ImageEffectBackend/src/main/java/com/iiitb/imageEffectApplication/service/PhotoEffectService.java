@@ -278,8 +278,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
-
+            DominantColourEffect dominantColourEffect = new DominantColourEffect();
+            Pixel[][] modifiedImage = dominantColourEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            System.out.println("Applied dominant colour effect to the image.");
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);

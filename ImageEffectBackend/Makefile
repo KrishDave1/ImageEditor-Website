@@ -34,6 +34,12 @@ GAUSSIAN_BLUR_JAVA_SRC = ./src/main/java/com/iiitb/imageEffectApplication/librar
 GAUSSIAN_BLUR_JNI_HEADER = ./src/Libraries/GaussianBlurLibrary/com_iiitb_imageEffectApplication_libraryInterfaces_GaussianBlurInterface.h
 GAUSSIAN_BLUR_LIB_NAME = ./src/main/resources/GaussianBlurLib
 
+DOMINANT_COLOUR_LIBRARY_DESTINATION = ./src/Libraries/DominantColourLibrary
+DOMINANT_COLOUR_CPP_SRC = ./src/Libraries/DominantColourLibrary/DominantColour.cpp ./src/Libraries/DominantColourLibrary/DominantColourInterface.cpp
+DOMINANT_COLOUR_JAVA_SRC = ./src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/DominantColourInterface.java
+DOMINANT_COLOUR_JNI_HEADER = ./src/Libraries/DominantColourLibrary/com_iiitb_imageEffectApplication_libraryInterfaces_DominantColourInterface.h
+DOMINANT_COLOUR_LIB_NAME = ./src/main/resources/DominantColourLib
+
 GRAYSCALE_LIBRARY_DESTINATION = ./src/Libraries/GrayscaleLibrary
 GRAYSCALE_CPP_SRC = ./src/Libraries/GrayscaleLibrary/Grayscale.cpp ./src/Libraries/GrayscaleLibrary/GrayscaleInterface.cpp
 GRAYSCALE_JAVA_SRC = ./src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/GrayscaleInterface.java
@@ -66,7 +72,7 @@ SHARPEN_LIB_NAME = ./src/main/resources/SharpenLib
 
 
 
-all: $(HUE_SATURATION_LIB_NAME) $(BRIGHTNESS_LIB_NAME) $(CONTRAST_LIB_NAME) $(FLIP_LIB_NAME) $(GAUSSIAN_BLUR_LIB_NAME) $(GRAYSCALE_LIB_NAME) $(INVERT_LIB_NAME) $(ROTATION_LIB_NAME) $(SEPIA_LIB_NAME) $(SHARPEN_LIB_NAME)
+all: $(HUE_SATURATION_LIB_NAME) $(BRIGHTNESS_LIB_NAME) $(CONTRAST_LIB_NAME) $(FLIP_LIB_NAME) $(GAUSSIAN_BLUR_LIB_NAME) $(GRAYSCALE_LIB_NAME) $(INVERT_LIB_NAME) $(ROTATION_LIB_NAME) $(SEPIA_LIB_NAME) $(SHARPEN_LIB_NAME) $(DOMINANT_COLOUR_LIB_NAME)
 
 $(HUE_SATURATION_LIB_NAME): $(HUE_SATURATION_CPP_SRC) $(HUE_SATURATION_JNI_HEADER)
 	$(CC) -shared -o $@ $(HUE_SATURATION_CPP_SRC) -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux
@@ -118,7 +124,11 @@ $(GAUSSIAN_BLUR_LIB_NAME): $(GAUSSIAN_BLUR_CPP_SRC) $(GAUSSIAN_BLUR_JNI_HEADER)
 $(GAUSSIAN_BLUR_JNI_HEADER): $(GAUSSIAN_BLUR_JAVA_SRC)
 	javac -cp ./src/main/java -h $(GAUSSIAN_BLUR_LIBRARY_DESTINATION) $(GAUSSIAN_BLUR_JAVA_SRC)
 
+$(DOMINANT_COLOUR_LIB_NAME): $(DOMINANT_COLOUR_CPP_SRC) $(DOMINANT_COLOUR_JNI_HEADER)
+	$(CC) -shared -o $@ $(DOMINANT_COLOUR_CPP_SRC) -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux
 
+$(DOMINANT_COLOUR_JNI_HEADER): $(DOMINANT_COLOUR_JAVA_SRC)
+	javac -cp ./src/main/java -h $(DOMINANT_COLOUR_LIBRARY_DESTINATION) $(DOMINANT_COLOUR_JAVA_SRC)
 
 
 
@@ -170,6 +180,7 @@ $(SHARPEN_JNI_HEADER): $(SHARPEN_JAVA_SRC)
 clean:
 	rm -f $(HUE_SATURATION_LIB_NAME) $(HUE_SATURATION_JNI_HEADER) \
 	$(BRIGHTNESS_LIB_NAME) $(BRIGHTNESS_JNI_HEADER) \
+	$(DOMINANT_COLOUR_LIB_NAME) $(DOMINANT_COLOUR_JNI_HEADER) \
 	$(CONTRAST_LIB_NAME) $(CONTRAST_JNI_HEADER) \
 	$(FLIP_LIB_NAME) $(FLIP_JNI_HEADER) \
 	$(GAUSSIAN_BLUR_LIB_NAME) $(GAUSSIAN_BLUR_JNI_HEADER) \
