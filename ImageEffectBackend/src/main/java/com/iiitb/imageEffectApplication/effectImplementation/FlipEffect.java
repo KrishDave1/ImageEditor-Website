@@ -1,6 +1,5 @@
 package com.iiitb.imageEffectApplication.effectImplementation;
 
-import com.iiitb.imageEffectApplication.baseEffects.DiscreteEffect;
 import com.iiitb.imageEffectApplication.baseEffects.Two_ValueDiscreteEffect;
 import com.iiitb.imageEffectApplication.libraryInterfaces.FlipInterface;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
