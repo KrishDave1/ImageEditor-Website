@@ -10,6 +10,7 @@
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/HueSaturationInterface.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/exception/IllegalParameterException.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/SharpenInterface.java
+/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/ContrastEffect.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/DiscreteEffect.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/PhotoEffectService.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/GrayscaleInterface.java
@@ -18,6 +19,7 @@
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/ParameterizableEffect.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/PhotoEffect.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/controller/LogController.java
+/mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/effectImplementation/SepiaEffect.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/baseEffects/SingleValueParameterizableEffect.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/model/LogModel.java
 /mnt/c/Users/krish/OneDrive - MSFT/Subjects 3rd Semester/Programming-2/ImageEditor Website/P2-2023-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/SepiaInterface.java

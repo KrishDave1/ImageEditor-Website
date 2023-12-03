@@ -1,3 +1,4 @@
+com/iiitb/imageEffectApplication/effectImplementation/SepiaEffect.class
 com/iiitb/imageEffectApplication/config/WebConfig.class
 com/iiitb/imageEffectApplication/model/LogModel.class
 com/iiitb/imageEffectApplication/baseEffects/DiscreteEffect.class
@@ -22,6 +23,7 @@ com/iiitb/imageEffectApplication/baseEffects/ParameterizableEffect.class
 com/iiitb/imageEffectApplication/exception/IllegalParameterException.class
 com/iiitb/imageEffectApplication/libraryInterfaces/RotationInterface.class
 com/iiitb/imageEffectApplication/controller/PhotoController.class
+com/iiitb/imageEffectApplication/effectImplementation/ContrastEffect.class
 com/iiitb/imageEffectApplication/baseEffects/PhotoEffect.class
 com/iiitb/imageEffectApplication/effectImplementation/GrayscaleEffect.class
 com/iiitb/imageEffectApplication/libraryInterfaces/GaussianBlurInterface.class

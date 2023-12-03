@@ -1,4 +1,5 @@
 #include "Sepia.h"
+#include <bits/stdc++.h>
 
 void applySepia(vector<vector<Pixel>> &image)
 {
