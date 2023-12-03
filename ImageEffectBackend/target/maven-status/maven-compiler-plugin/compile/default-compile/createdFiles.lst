@@ -6,13 +6,16 @@ com/iiitb/imageEffectApplication/utils/ProcessingUtils.class
 com/iiitb/imageEffectApplication/libraryInterfaces/BrightnessInterface.class
 com/iiitb/imageEffectApplication/baseEffects/SingleValueDiscreteEffect.class
 com/iiitb/imageEffectApplication/service/PhotoEffectService.class
+com/iiitb/imageEffectApplication/effectImplementation/InvertEffect.class
 com/iiitb/imageEffectApplication/libraryInterfaces/LoadNativeLibrary.class
 com/iiitb/imageEffectApplication/effectImplementation/BrightnessEffect.class
 com/iiitb/imageEffectApplication/libraryInterfaces/SharpenInterface.class
 com/iiitb/imageEffectApplication/libraryInterfaces/GrayscaleInterface.class
 com/iiitb/imageEffectApplication/libraryInterfaces/InvertInterface.class
 com/iiitb/imageEffectApplication/baseEffects/SingleValueParameterizableEffect.class
+com/iiitb/imageEffectApplication/baseEffects/Two_ValueDiscreteEffect.class
 com/iiitb/imageEffectApplication/service/LoggingService.class
+com/iiitb/imageEffectApplication/effectImplementation/FlipEffect.class
 com/iiitb/imageEffectApplication/controller/LogController.class
 com/iiitb/imageEffectApplication/libraryInterfaces/ContrastInterface.class
 com/iiitb/imageEffectApplication/libraryInterfaces/FlipInterface.class
@@ -22,6 +25,8 @@ com/iiitb/imageEffectApplication/baseEffects/ParameterizableEffect.class
 com/iiitb/imageEffectApplication/exception/IllegalParameterException.class
 com/iiitb/imageEffectApplication/libraryInterfaces/RotationInterface.class
 com/iiitb/imageEffectApplication/controller/PhotoController.class
+com/iiitb/imageEffectApplication/effectImplementation/SharpenEffect.class
 com/iiitb/imageEffectApplication/baseEffects/PhotoEffect.class
+com/iiitb/imageEffectApplication/effectImplementation/RotationEffect.class
 com/iiitb/imageEffectApplication/libraryInterfaces/GaussianBlurInterface.class
 com/iiitb/imageEffectApplication/libraryInterfaces/SepiaInterface.class
