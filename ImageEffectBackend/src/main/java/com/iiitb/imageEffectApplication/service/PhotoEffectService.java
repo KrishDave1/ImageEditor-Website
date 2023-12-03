@@ -1,10 +1,6 @@
 package com.iiitb.imageEffectApplication.service;
 
-import com.iiitb.imageEffectApplication.effectImplementation.BrightnessEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.FlipEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.InvertEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.RotationEffect;
-import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.*;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
@@ -207,7 +203,6 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
             // ACTUAL WORK STARTS HERE
 
             // TODO
@@ -239,7 +234,7 @@ public class PhotoEffectService {
             SepiaEffect sepiaEffect = new SepiaEffect();
 
             Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName, loggingService); // Replace this with
-                                                                                                // actual modified image
+                                                                                               // actual modified image
             System.out.println("Sepia effect applied successfully.");
 
             // ACTUAL WORK ENDS HERE
