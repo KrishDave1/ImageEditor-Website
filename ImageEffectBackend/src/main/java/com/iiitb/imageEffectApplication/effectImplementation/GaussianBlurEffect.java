@@ -15,6 +15,7 @@ public class GaussianBlurEffect implements SingleValueParameterizableEffect {
 
     @Override
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
+        loggingService.addLog(fileName, "Gaussian Blur", String.valueOf(this.parameterValue));
         return GaussianBlurInterface.applyGaussianBlur(image, this.parameterValue);
     }
 
