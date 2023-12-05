@@ -1,5 +1,9 @@
 package com.iiitb.imageEffectApplication.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "items")
 public class LogModel {
     private String timestamp; // The time at which the effect was applied
     private String filename; // The name of the file on which the effect is applied
