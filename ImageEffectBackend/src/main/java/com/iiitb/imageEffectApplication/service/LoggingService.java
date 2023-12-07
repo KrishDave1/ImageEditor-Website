@@ -61,7 +61,7 @@ public class LoggingService {
 //
 //        // Return the filtered logs
 //        return filteredLogs;
-        
+
         // Fetch all logs from the repository
         List<LogModel> allLogs = logRepository.findAll();
 
