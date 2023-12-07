@@ -1,12 +1,11 @@
 package com.iiitb.imageEffectApplication.model;
 
 import org.apache.juli.logging.Log;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+// import org.springframework.data.annotation.Id;
+// import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "items")
+// @Document(collection = "items")
 public class LogModel {
-    @Id
     private String id;
     private static int log_Number = 1;
     private String timestamp; // The time at which the effect was applied
