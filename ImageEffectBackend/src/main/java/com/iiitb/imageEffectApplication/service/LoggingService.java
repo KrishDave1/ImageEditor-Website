@@ -45,12 +45,28 @@ public class LoggingService {
     }
 
     public void clearLogs() {
-        logs.clear();
+        logRepository.deleteAll();
+//        logs.clear();
     }
 
     public List<LogModel> getLogsBetweenTimestamps(LocalDateTime startTimestamp, LocalDateTime endTimestamp) {
+//        // Filter logs based on the timestamps
+//        List<LogModel> filteredLogs = logs.stream()
+//                .filter(log -> {
+//                    LocalDateTime logDateTime = LocalDateTime.parse(log.getTimestamp(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+//                    return (logDateTime.isEqual(startTimestamp) || logDateTime.isAfter(startTimestamp)) &&
+//                            (logDateTime.isEqual(endTimestamp) || logDateTime.isBefore(endTimestamp));
+//                })
+//                .collect(Collectors.toList());
+//
+//        // Return the filtered logs
+//        return filteredLogs;
+        
+        // Fetch all logs from the repository
+        List<LogModel> allLogs = logRepository.findAll();
+
         // Filter logs based on the timestamps
-        List<LogModel> filteredLogs = logs.stream()
+        List<LogModel> filteredLogs = allLogs.stream()
                 .filter(log -> {
                     LocalDateTime logDateTime = LocalDateTime.parse(log.getTimestamp(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
                     return (logDateTime.isEqual(startTimestamp) || logDateTime.isAfter(startTimestamp)) &&
