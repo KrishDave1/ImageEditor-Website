@@ -6,8 +6,6 @@ import org.apache.juli.logging.Log;
 
 @Document(collection = "logItems")
 public class LogModel {
-    private String id;
-    private static int log_Number = 1;
     private String timestamp; // The time at which the effect was applied
     private String filename; // The name of the file on which the effect is applied
     private String effectName; // The name of the effect applied
@@ -19,8 +17,6 @@ public class LogModel {
 
     public LogModel(String timestamp, String filename, String effectName, String optionValues) {
         super();
-        this.id = String.valueOf(LogModel.log_Number);
-        LogModel.log_Number += 1;
         this.timestamp = timestamp;
         this.filename = filename;
         this.effectName = effectName;
