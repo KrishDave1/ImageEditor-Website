@@ -9,4 +9,6 @@ url:
 spring:
   data:
     mongodb:
-      uri=mongodb://localhost:27017/ImageEffectsLogs:
+      host: localhost
+      port : 27017
+      database: ImageEffectsLogs

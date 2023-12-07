@@ -33,3 +33,6 @@ build/
 
 ### Makefile ###
 /Libraries/Makefile
+
+### Mongo DB files ###
+/mongo_database

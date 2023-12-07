@@ -1,8 +1,10 @@
 package com.iiitb.imageEffectApplication.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.apache.juli.logging.Log;
+ import org.springframework.data.annotation.Id;
+ import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "logItems")
 public class LogModel {
     private String timestamp; // The time at which the effect was applied
     private String filename; // The name of the file on which the effect is applied
@@ -14,6 +16,7 @@ public class LogModel {
     }
 
     public LogModel(String timestamp, String filename, String effectName, String optionValues) {
+        super();
         this.timestamp = timestamp;
         this.filename = filename;
         this.effectName = effectName;
