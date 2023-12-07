@@ -4,7 +4,7 @@ import org.apache.juli.logging.Log;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "items")
+@Document(collection = "logItems")
 public class LogModel {
     @Id
     private String id;
@@ -19,6 +19,7 @@ public class LogModel {
     }
 
     public LogModel(String timestamp, String filename, String effectName, String optionValues) {
+        super();
         this.id = String.valueOf(LogModel.log_Number);
         LogModel.log_Number += 1;
         this.timestamp = timestamp;
