@@ -272,7 +272,7 @@ public class PhotoEffectService {
             // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
-            
+
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
