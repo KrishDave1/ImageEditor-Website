@@ -188,6 +188,7 @@ public class PhotoEffectService {
             // TODO
             executor = Executors.newFixedThreadPool(10);
             loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
                 loggingService.addLog(imageName,"Flip", String.valueOf(horizontalFlipValue) + " " + String.valueOf(verticalFlipValue));
                 return null;
             };
@@ -237,18 +238,41 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            GaussianBlurEffect gaussianBlurEffect = new GaussianBlurEffect();
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                loggingService.addLog(imageName, "Gaussian Blur", String.valueOf(radius));
+                return null;
+            };
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                GaussianBlurEffect gaussianBlurEffect = new GaussianBlurEffect();
+                try {
+                    gaussianBlurEffect.setParameterValue(radius);
+                } catch (IllegalParameterException e) {
+                    System.err.println("Error received: " + e.getMessage());
+                }
+                Pixel[][] modifiedImage = gaussianBlurEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
             try {
-                gaussianBlurEffect.setParameterValue(radius);
-            } catch (IllegalParameterException e) {
-                System.err.println("Error received: " + e.getMessage());
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
             }
-            Pixel[][] modifiedImage = gaussianBlurEffect.apply(inputImage, imageName); // Replace this with actual modified image
+            // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
-
-
-
+            
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
