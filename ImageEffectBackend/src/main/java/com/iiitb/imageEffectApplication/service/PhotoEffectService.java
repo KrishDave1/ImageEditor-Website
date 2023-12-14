@@ -10,7 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
-import java.util.ConcurrentModificationException;
+import java.util.concurrent.*;
+
 
 @Service
 public class PhotoEffectService {
@@ -20,21 +21,52 @@ public class PhotoEffectService {
 
     @Autowired
     private LoggingService loggingService;
+    private Callable<Pixel[][]> imageEffectTask;
+    private Callable<Void> loggingTask;
+    private ExecutorService executor;
+    Future<Pixel[][]> imageFuture;
+    Future<Void> loggingFuture;
 
     public ResponseEntity<byte[]> applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
             // ACTUAL WORK STARTS HERE
-
             // TODO
-            HueSaturationEffect hueSaturationEffect = new HueSaturationEffect();
+            executor = Executors.newFixedThreadPool(10);
+
+            loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                loggingService.addLog(imageName, "Hue Saturation", String.valueOf(hueAmount) + " " + String.valueOf(saturationAmount));
+                return null;
+            };
+
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                HueSaturationEffect hueSaturationEffect = new HueSaturationEffect();
+                try {
+                    hueSaturationEffect.setParameterValue(hueAmount, saturationAmount);
+                } catch (IllegalParameterException e) {
+                    System.err.println("Error received: " + e.getMessage());
+                }
+                Pixel[][] modifiedImage = hueSaturationEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
             try {
-                hueSaturationEffect.setParameterValue(hueAmount, saturationAmount);
-            } catch (IllegalParameterException e) {
-                System.err.println("Error received: " + e.getMessage());
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
             }
-            Pixel[][] modifiedImage = hueSaturationEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+
             return processingUtils.postProcessing(modifiedImage);
         } // Replace this with actual modified image
           // ACTUAL WORK ENDS HERE
@@ -49,18 +81,41 @@ public class PhotoEffectService {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
 
-
-
-
             // ACTUAL WORK STARTS HERE
             // TODO
-            BrightnessEffect brightnessEffect = new BrightnessEffect();
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                loggingService.addLog(imageName, "Brightness", String.valueOf(amount));
+                return null;
+            };
+
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                BrightnessEffect brightnessEffect = new BrightnessEffect();
+                try {
+                    brightnessEffect.setParameterValue(amount);
+                } catch (IllegalParameterException e) {
+                    System.err.println("Error received: " + e.getMessage());
+                }
+                Pixel[][] modifiedImage = brightnessEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
             try {
-                brightnessEffect.setParameterValue(amount);
-            } catch (IllegalParameterException e) {
-                System.err.println("Error received: " + e.getMessage());
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
             }
-            Pixel[][] modifiedImage = brightnessEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
@@ -76,22 +131,43 @@ public class PhotoEffectService {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
 
-
-
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            ContrastEffect contrastEffect = new ContrastEffect();
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                loggingService.addLog(imageName, "Contrast", "None");
+                return null;
+            };
+
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                ContrastEffect contrastEffect = new ContrastEffect();
+                try {
+                    contrastEffect.setParameterValue(amount);
+                } catch (IllegalParameterException e) {
+                    System.err.println("Error received: " + e.getMessage());
+                }
+                Pixel[][] modifiedImage = contrastEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
             try {
-                contrastEffect.setParameterValue(amount);
-            } catch (IllegalParameterException e) {
-                System.err.println("Error received: " + e.getMessage());
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
             }
-            Pixel[][] modifiedImage = contrastEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
-
-
 
             return processingUtils.postProcessing(modifiedImage);
 
@@ -110,18 +186,39 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            FlipEffect flipEffect = new FlipEffect();
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask = () -> {
+                loggingService.addLog(imageName,"Flip", String.valueOf(horizontalFlipValue) + " " + String.valueOf(verticalFlipValue));
+                return null;
+            };
+
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                FlipEffect flipEffect = new FlipEffect();
+                try {
+                    flipEffect.setParameters(horizontalFlipValue, verticalFlipValue);
+                }
+                catch(IllegalParameterException e){
+                    System.err.println("Error received: " + e.getMessage());
+                }
+                Pixel[][] modifiedImage = flipEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
             try {
-                flipEffect.setParameters(horizontalFlipValue, verticalFlipValue);
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
             }
-            catch(IllegalParameterException e){
-                System.err.println("Error received: " + e.getMessage());
-            }
-            Pixel[][] modifiedImage = flipEffect.apply(inputImage, imageName, loggingService);
             // ACTUAL WORK ENDS HERE
-
-
-
 
             return processingUtils.postProcessing(modifiedImage);
 
@@ -146,7 +243,7 @@ public class PhotoEffectService {
             } catch (IllegalParameterException e) {
                 System.err.println("Error received: " + e.getMessage());
             }
-            Pixel[][] modifiedImage = gaussianBlurEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = gaussianBlurEffect.apply(inputImage, imageName); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -171,7 +268,7 @@ public class PhotoEffectService {
             // TODO
 
             GrayscaleEffect grayscaleEffect = new GrayscaleEffect();
-            Pixel[][] modifiedImage = grayscaleEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = grayscaleEffect.apply(inputImage, imageName); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -192,7 +289,7 @@ public class PhotoEffectService {
 
             // TODO
             InvertEffect invertEffect = new InvertEffect();
-            Pixel[][] modifiedImage = invertEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = invertEffect.apply(inputImage, imageName); // Replace this with actual modified image
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
@@ -217,7 +314,7 @@ public class PhotoEffectService {
             catch (IllegalParameterException e){
                 System.err.println("Error received: " + e.getMessage());
             }
-            Pixel[][] modifiedImage = rotationEffect.apply(inputImage, imageName, loggingService);
+            Pixel[][] modifiedImage = rotationEffect.apply(inputImage, imageName);
             // ACTUAL WORK ENDS HERE
             return processingUtils.postProcessing(modifiedImage);
 
@@ -237,7 +334,7 @@ public class PhotoEffectService {
             // TODO
             SepiaEffect sepiaEffect = new SepiaEffect();
 
-            Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName, loggingService); // Replace this with
+            Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName); // Replace this with
                                                                                                // actual modified image
 
             // ACTUAL WORK ENDS HERE
@@ -263,7 +360,7 @@ public class PhotoEffectService {
             } catch (IllegalParameterException e) {
                 System.err.println("Error received: " + e.getMessage());
             }
-            Pixel[][] modifiedImage = sharpenEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = sharpenEffect.apply(inputImage, imageName); // Replace this with actual modified image
             // ACTUAL WORK ENDS HERE
             return processingUtils.postProcessing(modifiedImage);
         } catch (IOException e) {
@@ -281,7 +378,7 @@ public class PhotoEffectService {
 
             // TODO
             DominantColourEffect dominantColourEffect = new DominantColourEffect();
-            Pixel[][] modifiedImage = dominantColourEffect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = dominantColourEffect.apply(inputImage, imageName); // Replace this with actual modified image
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);

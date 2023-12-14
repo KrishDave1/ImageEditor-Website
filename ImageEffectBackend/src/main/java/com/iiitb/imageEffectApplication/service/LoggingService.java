@@ -26,6 +26,7 @@ public class LoggingService {
         LogModel logModel = new LogModel(formattedTime, fileName, effectName, optionValues);
 //        logs.add(logModel);
         logRepository.save(logModel);
+        System.out.println("Successfully added a log.");
     }
 
     public List<LogModel> getAllLogs() {

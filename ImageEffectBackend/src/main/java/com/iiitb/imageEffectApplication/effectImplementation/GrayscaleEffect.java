@@ -13,8 +13,7 @@ public class GrayscaleEffect implements PhotoEffect {
     }
 
     @Override
-    public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        loggingService.addLog(fileName, "Grayscale", "None");
+    public Pixel[][] apply(Pixel[][] image, String fileName) {
         return GrayscaleInterface.applyGrayscale(image);
     }
 }

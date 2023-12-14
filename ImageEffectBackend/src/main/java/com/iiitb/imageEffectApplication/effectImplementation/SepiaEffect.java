@@ -7,8 +7,7 @@ import com.iiitb.imageEffectApplication.service.LoggingService;
 
 public class SepiaEffect implements PhotoEffect {
     @Override
-    public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        loggingService.addLog(fileName, "Sepia", "None");
+    public Pixel[][] apply(Pixel[][] image, String fileName) {
         return SepiaInterface.applySepia(image);
     }
 }

@@ -13,8 +13,7 @@ public class BrightnessEffect implements SingleValueParameterizableEffect {
     }
 
     @Override
-    public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        loggingService.addLog(fileName, "Brightness", String.valueOf(this.parameterValue));
+    public Pixel[][] apply(Pixel[][] image, String fileName) {
         return BrightnessInterface.applyBrightness(image, this.parameterValue);
     }
 
