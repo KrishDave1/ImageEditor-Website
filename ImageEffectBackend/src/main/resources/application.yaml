@@ -5,10 +5,13 @@ url:
   frontend: http://localhost:4200
   backend: http://localhost:8000
 
-
+#spring:
+#  data:
+#    mongodb:
+#      host: localhost
+#      port: 27017
+#      database: ImageEffectsLogs
 spring:
   data:
     mongodb:
-      host: localhost
-      port : 27017
-      database: ImageEffectsLogs
+      uri: mongodb://localhost:27017/springgdb

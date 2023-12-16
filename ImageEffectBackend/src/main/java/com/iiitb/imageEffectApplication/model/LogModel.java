@@ -1,8 +1,8 @@
 package com.iiitb.imageEffectApplication.model;
 
 import org.apache.juli.logging.Log;
- import org.springframework.data.annotation.Id;
- import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "logItems")
 public class LogModel {

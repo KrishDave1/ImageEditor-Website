@@ -6,8 +6,7 @@ import com.iiitb.imageEffectApplication.libraryInterfaces.InvertInterface;
 
 public class InvertEffect implements PhotoEffect {
     @Override
-    public Pixel[][] apply(Pixel[][] pixels, String imageName, LoggingService loggingService) {
-        loggingService.addLog(imageName, "Invert", "None");
+    public Pixel[][] apply(Pixel[][] pixels, String imageName) {
         return InvertInterface.applyInvert(pixels);
     }
 }

@@ -19,9 +19,8 @@ public class RotationEffect implements DiscreteEffect {
     }
 
     @Override
-    public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
+    public Pixel[][] apply(Pixel[][] image, String fileName) {
         // Implementation of the apply method goes here
-        loggingService.addLog(fileName,"Rotation",String.valueOf(Degree));
         return RotationInterface.applyRotation(image, Degree);
     }
 }

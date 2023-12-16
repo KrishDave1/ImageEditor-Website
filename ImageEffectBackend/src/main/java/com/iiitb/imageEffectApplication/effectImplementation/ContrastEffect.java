@@ -14,8 +14,7 @@ public class ContrastEffect implements SingleValueParameterizableEffect {
     }
 
     @Override
-    public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        loggingService.addLog(fileName, "Contrast", String.valueOf(this.parameterValue));
+    public Pixel[][] apply(Pixel[][] image, String fileName) {
         return ContrastInterface.applyContrast(image, this.parameterValue);
     }
 

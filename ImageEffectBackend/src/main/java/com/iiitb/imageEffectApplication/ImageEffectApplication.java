@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class ImageEffectApplication {
 	@Autowired
-	LogRepository logRepository;
+	 LogRepository logRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(ImageEffectApplication.class, args);
 	}

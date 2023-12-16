@@ -13,14 +13,12 @@ public class HueSaturationEffect implements TwoValueParameterizableEffect{
     public HueSaturationEffect() {
         this.hueAmount = 0;
         this.saturationAmount = 0;
-    }
+    } 
 
     @Override
-    public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        loggingService.addLog(fileName, "Hue saturation", String.valueOf(this.hueAmount) + " " + String.valueOf(this.saturationAmount));
+    public Pixel[][] apply(Pixel[][] image, String fileName) {
         return HueSaturationInterface.applyHueSaturation(image, this.hueAmount, this.saturationAmount);
     }
-
     @Override
     public void setParameterValue(float hueAmount, float saturationAmount) throws IllegalParameterException {
         if (hueAmount < 0 || hueAmount > 100) {
