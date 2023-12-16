@@ -29,6 +29,5 @@ public class HueSaturationEffect implements TwoValueParameterizableEffect{
         }
         this.hueAmount = hueAmount;
         this.saturationAmount = saturationAmount;
-
     }
 }

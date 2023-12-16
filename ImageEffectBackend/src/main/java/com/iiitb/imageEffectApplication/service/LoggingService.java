@@ -25,8 +25,9 @@ public class LoggingService {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedTime = currentTime.format(formatter);
         LogModel logModel = new LogModel(formattedTime, fileName, effectName, optionValues);
-//       logs.add(logModel);
-         logRepository.save(logModel);
+//        logs.add(logModel);
+        logRepository.save(logModel);
+        System.out.println("Successfully added a log.");
     }
 
     public List<LogModel> getAllLogs() {

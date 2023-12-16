@@ -18,8 +18,20 @@ public class FlipEffect implements Two_ValueDiscreteEffect{
         this.verticalFlipValue = param2;
     }
     @Override
-    public Pixel[][] apply(Pixel[][] pixels, String imagePath) {
+    public Pixel[][] apply(Pixel[][] image, String fileName) {
         // Implement the apply method here
-        return FlipInterface.applyFlip(pixels, horizontalFlipValue, verticalFlipValue);
+        String option = "";
+        if (this.horizontalFlipValue == 1){
+            option += "Horizontal_Flip";
+        }
+        if (this.verticalFlipValue == 1){
+            if (this.horizontalFlipValue == 1){
+                option += " and Vertical_Flip";
+            }
+            else{
+                option += "Horizontal_Flip";
+            }
+        }
+        return FlipInterface.applyFlip(image, horizontalFlipValue, verticalFlipValue);
     }
 }
