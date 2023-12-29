@@ -1,5 +1,4 @@
 package com.iiitb.imageEffectApplication.service;
-
 import com.iiitb.imageEffectApplication.effectImplementation.*;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
@@ -15,10 +14,10 @@ import java.util.concurrent.*;
 
 @Service
 public class PhotoEffectService {
-
+    Callable <Pixel[][]> ImageEffect;
+    ExecutorService executorService = Executors.newFixedThreadPool(10);
     @Autowired
     private ProcessingUtils processingUtils;
-
     @Autowired
     private LoggingService loggingService;
     private Callable<Pixel[][]> imageEffectTask;
@@ -75,7 +74,6 @@ public class PhotoEffectService {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     public ResponseEntity<byte[]> applyBrightnessEffect(float amount, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
@@ -125,14 +123,12 @@ public class PhotoEffectService {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     public ResponseEntity<byte[]> applyContrastEffect(float amount, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
 
             // ACTUAL WORK STARTS HERE
-
             // TODO
             executor = Executors.newFixedThreadPool(10);
             loggingTask = () -> {
@@ -181,10 +177,7 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
             // ACTUAL WORK STARTS HERE
-
             // TODO
             executor = Executors.newFixedThreadPool(10);
             loggingTask = () -> {
@@ -228,7 +221,6 @@ public class PhotoEffectService {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     public ResponseEntity<byte[]> applyGaussianBlurEffect(float radius, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
@@ -285,17 +277,37 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
             // ACTUAL WORK STARTS HERE
-
             // TODO
 
-            GrayscaleEffect grayscaleEffect = new GrayscaleEffect();
-            Pixel[][] modifiedImage = grayscaleEffect.apply(inputImage, imageName); // Replace this with actual modified image
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask =() -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                loggingService.addLog(imageName, "GrayScale", "None");
+                return null;
+            };
+            imageEffectTask = () -> {
+                System.out.println("Will do the image prpcessing on the thread = " + Thread.currentThread().getName());
+                GrayscaleEffect grayscaleEffect = new GrayscaleEffect();
+                Pixel[][] modifiedImage = grayscaleEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
+            try{
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            }catch (InterruptedException | ExecutionException e){
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service");
+                executor.shutdown();
+            }
 
             // ACTUAL WORK ENDS HERE
-
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
@@ -310,10 +322,33 @@ public class PhotoEffectService {
             String imageName = imageFile.getOriginalFilename();
 
             // ACTUAL WORK STARTS HERE
-
             // TODO
-            InvertEffect invertEffect = new InvertEffect();
-            Pixel[][] modifiedImage = invertEffect.apply(inputImage, imageName); // Replace this with actual modified image
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                loggingService.addLog(imageName, "Invert", "None");
+                return null;
+            };
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                InvertEffect invertEffect = new InvertEffect();
+                Pixel[][] modifiedImage = invertEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
+            try {
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
+            }
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
@@ -331,14 +366,40 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            RotationEffect rotationEffect = new RotationEffect();
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                if (value < 0 || value > 3) {
+                    throw new IllegalParameterException("Value can be 0, 90, 180 or 270.");
+                }
+                loggingService.addLog(imageName, "Rotation", String.valueOf(value*90));
+                return null;
+            };
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                RotationEffect rotationEffect = new RotationEffect();
+                try {
+                    rotationEffect.selectOptionValue(imageName, value);
+                } catch (IllegalParameterException e) {
+                    System.err.println("Error received: " + e.getMessage());
+                }
+                Pixel[][] modifiedImage = rotationEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
             try {
-                rotationEffect.selectOptionValue(imageName, value);
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
             }
-            catch (IllegalParameterException e){
-                System.err.println("Error received: " + e.getMessage());
-            }
-            Pixel[][] modifiedImage = rotationEffect.apply(inputImage, imageName);
             // ACTUAL WORK ENDS HERE
             return processingUtils.postProcessing(modifiedImage);
 
@@ -356,11 +417,33 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            SepiaEffect sepiaEffect = new SepiaEffect();
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                loggingService.addLog(imageName, "Sepia", "None");
+                return null;
+            };
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                SepiaEffect sepiaEffect = new SepiaEffect();
+                Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
 
-            Pixel[][] modifiedImage = sepiaEffect.apply(inputImage, imageName); // Replace this with
-                                                                                               // actual modified image
-
+            Pixel[][] modifiedImage = inputImage;
+            try {
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
+            }
+            // Replace this withactual modified image
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
@@ -377,14 +460,39 @@ public class PhotoEffectService {
             String imageName = imageFile.getOriginalFilename();
 
             // ACTUAL WORK STARTS HERE
-            SharpenEffect sharpenEffect = new SharpenEffect();
             // TODO
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                loggingService.addLog(imageName, "Sharpen", String.valueOf(amount));
+                return null;
+            };
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                SharpenEffect sharpenEffect = new SharpenEffect();
+                try {
+                    sharpenEffect.setParameterValue(amount);
+                } catch (IllegalParameterException e) {
+                    System.err.println("Error received: " + e.getMessage());
+                }
+                Pixel[][] modifiedImage = sharpenEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
             try {
-                sharpenEffect.setParameterValue(amount);
-            } catch (IllegalParameterException e) {
-                System.err.println("Error received: " + e.getMessage());
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
             }
-            Pixel[][] modifiedImage = sharpenEffect.apply(inputImage, imageName); // Replace this with actual modified image
+
             // ACTUAL WORK ENDS HERE
             return processingUtils.postProcessing(modifiedImage);
         } catch (IOException e) {
@@ -401,8 +509,32 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            DominantColourEffect dominantColourEffect = new DominantColourEffect();
-            Pixel[][] modifiedImage = dominantColourEffect.apply(inputImage, imageName); // Replace this with actual modified image
+            executor = Executors.newFixedThreadPool(10);
+            loggingTask = () -> {
+                System.out.println("Will add the log on the thread = " + Thread.currentThread().getName());
+                loggingService.addLog(imageName, "Dominant Color", "None");
+                return null;
+            };
+            imageEffectTask = () -> {
+                System.out.println("Doing image processing on the thread = " + Thread.currentThread().getName());
+                DominantColourEffect dominantColourEffect = new DominantColourEffect();
+                Pixel[][] modifiedImage = dominantColourEffect.apply(inputImage, imageName);
+                System.out.println("Processed the image asynchronously.");
+                return modifiedImage;
+            };
+            imageFuture = executor.submit(imageEffectTask);
+            loggingFuture = executor.submit(loggingTask);
+
+            Pixel[][] modifiedImage = inputImage;
+            try {
+                modifiedImage = imageFuture.get();
+                loggingFuture.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Now shutting down the executor service.");
+                executor.shutdown();
+            }
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);

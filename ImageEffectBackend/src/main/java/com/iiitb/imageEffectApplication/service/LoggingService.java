@@ -1,5 +1,6 @@
 package com.iiitb.imageEffectApplication.service;
 import com.iiitb.imageEffectApplication.model.LogModel;
+//import com.iiitb.imageEffectApplication.repository.LogRepository;
 import com.iiitb.imageEffectApplication.repository.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,51 +32,51 @@ public class LoggingService {
 
     public List<LogModel> getAllLogs() {
         return logRepository.findAll();
-//        return logs;
+//       return logs;
     }
 
     public List<LogModel> getLogsByEffect(String effectName) {
-//        List<LogModel> logModels = new ArrayList<LogModel>();
-//        for (LogModel logModel : logs) {
-//            if (Objects.equals(effectName, logModel.getEffectName())) {
-//                logModels.add(logModel);
-//            }
-//        }
-//        return logModels;
-        return logRepository.findLogByEffectName(effectName);
+//       List<LogModel> logModels = new ArrayList<LogModel>();
+//       for (LogModel logModel : logs) {
+//           if (Objects.equals(effectName, logModel.getEffectName())) {
+//               logModels.add(logModel);
+//           }
+//       }
+//       return logModels;
+         return logRepository.findLogByEffectName(effectName);
     }
 
     public void clearLogs() {
         logRepository.deleteAll();
-//        logs.clear();
+//       logs.clear();
     }
 
     public List<LogModel> getLogsBetweenTimestamps(LocalDateTime startTimestamp, LocalDateTime endTimestamp) {
 //        // Filter logs based on the timestamps
-//        List<LogModel> filteredLogs = logs.stream()
-//                .filter(log -> {
-//                    LocalDateTime logDateTime = LocalDateTime.parse(log.getTimestamp(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-//                    return (logDateTime.isEqual(startTimestamp) || logDateTime.isAfter(startTimestamp)) &&
-//                            (logDateTime.isEqual(endTimestamp) || logDateTime.isBefore(endTimestamp));
-//                })
-//                .collect(Collectors.toList());
+//       List<LogModel> filteredLogs = logs.stream()
+//               .filter(log -> {
+//                   LocalDateTime logDateTime = LocalDateTime.parse(log.getTimestamp(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+//                   return (logDateTime.isEqual(startTimestamp) || logDateTime.isAfter(startTimestamp)) &&
+//                           (logDateTime.isEqual(endTimestamp) || logDateTime.isBefore(endTimestamp));
+//               })
+//               .collect(Collectors.toList());
 //
-//        // Return the filtered logs
-//        return filteredLogs;
+//       // Return the filtered logs
+//       return filteredLogs;
 
         // Fetch all logs from the repository
-        List<LogModel> allLogs = logRepository.findAll();
+         List<LogModel> allLogs = logRepository.findAll();
 
-        // Filter logs based on the timestamps
-        List<LogModel> filteredLogs = allLogs.stream()
-                .filter(log -> {
-                    LocalDateTime logDateTime = LocalDateTime.parse(log.getTimestamp(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-                    return (logDateTime.isEqual(startTimestamp) || logDateTime.isAfter(startTimestamp)) &&
-                            (logDateTime.isEqual(endTimestamp) || logDateTime.isBefore(endTimestamp));
-                })
-                .collect(Collectors.toList());
+         // Filter logs based on the timestamps
+         List<LogModel> filteredLogs = allLogs.stream()
+                 .filter(log -> {
+                     LocalDateTime logDateTime = LocalDateTime.parse(log.getTimestamp(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                     return (logDateTime.isEqual(startTimestamp) || logDateTime.isAfter(startTimestamp)) &&
+                             (logDateTime.isEqual(endTimestamp) || logDateTime.isBefore(endTimestamp));
+                 })
+                 .collect(Collectors.toList());
 
-        // Return the filtered logs
-        return filteredLogs;
+         // Return the filtered logs
+         return filteredLogs;
     }
 }
