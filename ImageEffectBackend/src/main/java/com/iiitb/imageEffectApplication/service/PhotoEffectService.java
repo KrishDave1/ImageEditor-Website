@@ -24,8 +24,8 @@ public class PhotoEffectService {
     private Callable<Pixel[][]> imageEffectTask;
     private Callable<Void> loggingTask;
     private ExecutorService executor;
-    Future<Pixel[][]> imageFuture;
-    Future<Void> loggingFuture;
+    private Future<Pixel[][]> imageFuture;
+    private Future<Void> loggingFuture;
 
     public ResponseEntity<byte[]> applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile) {
         try {
