@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface LogRepository extends MongoRepository<LogModel, String> {
-    @Query(value = "{'effectname': '?0'}", fields = "{'timestamp' :  1, 'filename' :  1, 'effectname' :  1, 'optionValues' : 1}")
+    @Query(value = "{effectName : '?0'}", fields = "{'timestamp' :  1, 'filename' :  1, 'effectName' :  1, 'optionValues' : 1}")
     List<LogModel> findLogByEffectName(String effect);
 }
