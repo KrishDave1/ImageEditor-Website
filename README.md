@@ -4,8 +4,8 @@
 
 - [Overview](#overview)
 - [Backend Architecture](#backend-architecture)
-- [Image Editing Features](#image-editing-features)
-- [Image editing workflow](#image-editing-workflow)
+- [Image Editing Functionality](#image-editing-functionality)
+- [Key Features](#key-features)
 - [Installation](#image-editor-web-app-installation)
 - [Backend setup](#backend-setup)
 - [Frontend](#frontend)
@@ -14,7 +14,7 @@
 
 ImageEditor-Website is a sophisticated web application designed for image manipulation, leveraging advanced technologies for both backend and frontend. The backend, powered by Spring Boot, seamlessly integrates with C++ libraries via JNI, ensuring high-performance image processing. MongoDB serves as the storage solution for effect logs, adding robustness to the application
 
-## Image Editing Features
+## Image Editing Functionality
 
 - **Hue Saturation:** Adjust the hue and saturation of images. 
 - **Brightness:** Modify the brightness of images.
@@ -34,14 +34,20 @@ The backend of ImageEditor-Website is powered by **Spring Boot**, providing a ro
 - **JNI** (Java Native Interface) is used to access C++ libraries, ensuring fast and efficient image modification. 
 - **MongoDB** is employed to store logs of the effects applied to images.
 
-## Image editing Workflow
+## Key Features
+- **Modular Structure:** The frontend is organized into modular components, ensuring maintainability and scalability.
 
+- **Responsive Design:** The user interface is designed to be responsive, catering to various screen sizes and devices.
 
-- Access the ImageEditor-Website through your web browser.
-- Upload an image to the platform.
-- Apply various effects from the provided list.
-- Save or download the edited image.
-- Check the logs section to see your image effect application history.
+- **Image Upload:** Users can effortlessly upload source images for applying diverse image effects.
+
+- **Effect Application:** The frontend seamlessly communicates with the backend to apply effects such as brightness, contrast, rotation, and more.
+
+- **Result Display:** The resulting images are dynamically displayed, allowing users to preview and download the edited images.
+
+- **Download Functionality:** Users can download the edited images with ease using the provided download buttons.
+
+- **User-friendly Interface:** The frontend is designed to be intuitive, enabling users to navigate and interact with the application effortlessly.
   
 ## Image editor web app: Installation
 
@@ -160,21 +166,6 @@ The `ImageEffectFrontend` component is a robust Angular-based frontend (version 
 
 - **DOM Sanitization:** Ensures the security of dynamically generated URLs and content.
 
-## Key Features
-
-- **Modular Structure:** The frontend is organized into modular components, ensuring maintainability and scalability.
-
-- **Responsive Design:** The user interface is designed to be responsive, catering to various screen sizes and devices.
-
-- **Image Upload:** Users can effortlessly upload source images for applying diverse image effects.
-
-- **Effect Application:** The frontend seamlessly communicates with the backend to apply effects such as brightness, contrast, rotation, and more.
-
-- **Result Display:** The resulting images are dynamically displayed, allowing users to preview and download the edited images.
-
-- **Download Functionality:** Users can download the edited images with ease using the provided download buttons.
-
-- **User-friendly Interface:** The frontend is designed to be intuitive, enabling users to navigate and interact with the application effortlessly.
 
 ## Frontend setup
 
