@@ -12,7 +12,7 @@
 - [Installation](#image-editor-web-app-installation)
 - [Backend setup](#backend-setup)
 - [Frontend](#frontend)
-- Contributions(#contributions)
+- [Contributions](#contributions)
 
 ## Overview
 
