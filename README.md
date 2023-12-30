@@ -58,7 +58,8 @@ For setting up frontend: [Skip to here](#frontend-setup)
 ## Backend setup
 Before proceeding with the backend setup, ensure you have the following prerequisites installed:
 
-+ [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install)
+  If you are using windows you will need WSL
+  + [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install)
 
 + [MongoDB](https://docs.mongodb.com/manual/installation/)
 
