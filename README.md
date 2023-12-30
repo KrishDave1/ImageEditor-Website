@@ -78,3 +78,13 @@ The backend of ImageEditor-Website is powered by Spring Boot, providing a robust
 
    ```bash
    cd .\ImageEffectBackend\mongo_database
+- Run the Mongo DB server.
+
+   ```bash
+   mongod --dbpath . --port 27017
+- Now open Mongo DB Compass GUI and press **CONNECT**.
+- Now navigate to the first terminal.
+- Run the SpringBoot backend server.
+
+   ```bash
+   java -jar target/driveProject-0.0.1-SNAPSHOT.jar
