@@ -44,3 +44,36 @@ The backend of ImageEditor-Website is powered by Spring Boot, providing a robust
 - Check the logs section to see your image effect application history.
 
 ## Running the backend
+
+- Navigate to the backend folder.
+
+```bash
+cd .\ImageEffectBackend\
+- Start WSL.
+
+```bash
+wsl
+- CLean the project directory.
+
+```bash
+make clean
+- Run the Makefile.
+
+```bash
+make
+- Clean the Maven project directory.
+
+```bash
+mvn clean
+
+- Build the Maven package.
+
+```mvn package
+- Create a folder for running the Mongo DB server.
+
+```bash
+mkdir mongo_database
+- Open a new terminal and navigate to the recently made folder.
+
+```bash
+cd .\ImageEffectBackend\mongo_database
