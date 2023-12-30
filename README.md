@@ -53,7 +53,7 @@ The backend of ImageEditor-Website is powered by Spring Boot, providing a robust
 
    ```bash
    wsl
-- CLean the project directory.
+- Clean the project directory.
 
    ```bash
    make clean
