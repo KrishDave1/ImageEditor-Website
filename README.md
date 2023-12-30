@@ -151,7 +151,7 @@ Before proceeding with the backend setup, ensure you have the following prerequi
   ```bash
   mvn clean install
   ```
-Return to [Installation](#Installation)
+Return to [Installation](#installation)
 
 
 
@@ -207,7 +207,7 @@ cd .\ImageEffectFrontend\
 ng serve
 ```
 The application should be accessible at http://localhost:4200/ in your web browser.
-Return to [Installation](#Installation)
+Return to [Installation](#installation)
 
 ### Code Scaffolding
 Generate a new component using the following command:
