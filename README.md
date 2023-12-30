@@ -32,3 +32,11 @@ The backend of ImageEditor-Website is powered by Spring Boot, providing a robust
 
    ```bash
    git clone https://github.com/KetanGhungralekar/ImageEditor-Website
+
+## Usage
+
+-Access the ImageEditor-Website through your web browser.
+-Upload an image to the platform.
+-Apply various effects from the provided list.
+-Save or download the edited image.
+-Check the logs section to see your image effect application history.
