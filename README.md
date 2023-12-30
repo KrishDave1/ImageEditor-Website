@@ -68,11 +68,12 @@ The backend of ImageEditor-Website is powered by Spring Boot, providing a robust
 
 - Build the Maven package.
 
-   ```mvn package
+   ```bash
+   mvn package
 - Create a folder for running the Mongo DB server.
 
    ```bash
-mkdir mongo_database
+   mkdir mongo_database
 - Open a new terminal and navigate to the recently made folder.
 
    ```bash
