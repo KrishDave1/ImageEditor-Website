@@ -12,6 +12,6 @@ public interface LogRepository extends MongoRepository<LogModel, String> {
     List<LogModel> findLogByEffectName(String effect);
 }
 
-//this code declares a Spring Data MongoDB repository interface (LogRepository) for the LogModel entity.
+// This code declares a Spring Data MongoDB repository interface (LogRepository) for the LogModel entity.
 // It includes a custom query method (findLogByEffectName) with a MongoDB query that searches for logs based on
 // the 'effectName' field and specifies the fields to be included in the result.
