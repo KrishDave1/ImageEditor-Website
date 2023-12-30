@@ -50,8 +50,8 @@ Clone the repository:
    ```bash
    git clone https://github.com/KetanGhungralekar/ImageEditor-Website
    ```
-For setting up backend: [Skip to here](#Backend)   
-For setting up frontend: [Skip to here](#Frontend)   
+For setting up backend: [Skip to here](#Backend_setup)   
+For setting up frontend: [Skip to here](#Front_end)   
 
 
 ## Backend setup
