@@ -3,11 +3,10 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Features](#features)
 - [Backend Architecture](#backend-architecture)
-- [Features](#features)
-- [Usage Features](#usage-features)
-- [Installation](#installation)
+- [Image Editing Features](#image-editing-features)
+- [Image editing workflow](#image-editing-workflow)
+- [Installation](#image-editor-web-app-installation)
 - [Backend setup](#backend-setup)
 - [Frontend](#frontend)
 
@@ -15,7 +14,7 @@
 
 ImageEditor-Website is a sophisticated web application designed for image manipulation, leveraging advanced technologies for both backend and frontend. The backend, powered by Spring Boot, seamlessly integrates with C++ libraries via JNI, ensuring high-performance image processing. MongoDB serves as the storage solution for effect logs, adding robustness to the application
 
-## Features
+## Image Editing Features
 
 - **Hue Saturation:** Adjust the hue and saturation of images. 
 - **Brightness:** Modify the brightness of images.
@@ -35,7 +34,7 @@ The backend of ImageEditor-Website is powered by **Spring Boot**, providing a ro
 - **JNI** (Java Native Interface) is used to access C++ libraries, ensuring fast and efficient image modification. 
 - **MongoDB** is employed to store logs of the effects applied to images.
 
-## Usage features
+## Image editing Workflow
 
 
 - Access the ImageEditor-Website through your web browser.
@@ -43,7 +42,8 @@ The backend of ImageEditor-Website is powered by **Spring Boot**, providing a ro
 - Apply various effects from the provided list.
 - Save or download the edited image.
 - Check the logs section to see your image effect application history.
-## Installation
+  
+## Image editor web app: Installation
 
 
 Clone the repository:
