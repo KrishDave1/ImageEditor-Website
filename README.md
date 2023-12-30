@@ -71,13 +71,6 @@ Additionally, we acknowledge and appreciate the following external resources tha
 - https://medium.com/@samuelcatalano/connecting-spring-boot-to-mongodb-a-step-by-step-guide-b9f2fd9e872d
 - https://www.mongodb.com/compatibility/spring-boot
 
-## Authors
-
-- [Ketan Ghungralekar](https://www.github.com/KetanGhungralekar/)
-- [Krish Dave](https://github.com/KrishDave1)
-- [Valmik Belgaonkar](https://github.com/valmikGit)
-- [Vedant Mangrulkar](https://github.com/MVedant21)
-- [Abhinav Deshpande](https://www.github.com/Abhinav-gh/)
 ## Image editor web app: Installation
 
 
@@ -248,10 +241,18 @@ ng help
 or you can go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli)
 page.
 
+## Authors
+
+- [Ketan Ghungralekar](https://www.github.com/KetanGhungralekar/)
+- [Krish Dave](https://github.com/KrishDave1)
+- [Valmik Belgaonkar](https://github.com/valmikGit)
+- [Vedant Mangrulkar](https://github.com/MVedant21)
+- [Abhinav Deshpande](https://www.github.com/Abhinav-gh/)
+
 ### Contributions
 
 - Valmik : Integrated Mongo DB with the SpringBoot backend. Made changes in the Makefile to accommodate the Dominant Colour effect. Made the required CPP library, consisting of the appropriate CPP header file and the file containing the CPP function for processing the image, for the Dominant colour effect and implemented the required JNI code. Effects implemented are Brightness and Dominant Colour.
 - Krish : Resolved all the issues related to project setup, Maven setup, WSL setup and GitHub. Helped in resolving errors faced while implementing multithreading. Made changes in the Makefile to accommodate the Dominant Colour effect. Effects implemented are Hue Saturation, Gaussian blur and Sepia.
 - Ketan : Cracked the logic of how to implement multithreading and implemented it in the Flip effect which the others then referred to while implementing the effects assigned to them. Made a new interface, named Two_ValueDiscreteEffect, required for the Flip effect class. Effects implemented are Flip and Sharpen.
 - Vedant : Did all the additional documentation required for all the effects and the project in general. Tested the functionality of all the effects. Effects implemented - Invert and Rotation.
-- Abhinav : Made the README.md file. Tested the functionality of all the effects. Effects implemented are Contrast and Grayscale.
+- Abhinav : Made the README.md file. Tested the functionality of all the effects. Calibrated the filters by changing the CPP code wherever necessary. Altered the sensitivity of the sliders wherever required. Effects implemented are Contrast and Grayscale.
