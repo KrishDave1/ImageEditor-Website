@@ -6,6 +6,9 @@
 - [Backend Architecture](#backend-architecture)
 - [Image Editing Functionality](#image-editing-functionality)
 - [Key Features](#key-features)
+- [Challenges Faced](#challenges-faced)
+- [Acknowledgements](#acknowledgements)
+- [Authors](#authors)
 - [Installation](#image-editor-web-app-installation)
 - [Backend setup](#backend-setup)
 - [Frontend](#frontend)
@@ -48,7 +51,29 @@ The backend of ImageEditor-Website is powered by **Spring Boot**, providing a ro
 - **Download Functionality:** Users can download the edited images with ease using the provided download buttons.
 
 - **User-friendly Interface:** The frontend is designed to be intuitive, enabling users to navigate and interact with the application effortlessly.
-  
+
+## Challenges Faced
+Please update this with some challenges you faced.
+
+## Acknowledgements
+We would like to express our sincere gratitude to our professor and teaching assistants for their invaluable guidance and support throughout the completion of this project.
+
+Additionally, we acknowledge and appreciate the following external resources that proved instrumental in the development of our project:
+
+- https://docs.spring.io/spring-data/mongodb/docs/1.2.0.RELEASE/reference/html/mongo.repositories.html
+- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb
+- https://www.baeldung.com/java-runnable-callable
+- https://angular.io/api
+- https://medium.com/@samuelcatalano/connecting-spring-boot-to-mongodb-a-step-by-step-guide-b9f2fd9e872d
+- https://www.mongodb.com/compatibility/spring-boot
+
+## Authors
+
+- [Ketan Ghungralekar](https://www.github.com/KetanGhungralekar/)
+- [Krish Dave](https://github.com/KrishDave1)
+- [Valmik Belgaonkar](https://github.com/valmikGit)
+- [Vedant Mangrulkar](https://github.com/MVedant21)
+- [Abhinav Deshpande](https://www.github.com/Abhinav-gh/)
 ## Image editor web app: Installation
 
 
@@ -131,13 +156,7 @@ Before proceeding with the backend setup, ensure you have the following prerequi
   ```
 Return to [Installation](#Installation)
 
-## Authors
 
-- [Ketan Ghungralekar](https://www.github.com/KetanGhungralekar/)
-- [Krish Dave](https://github.com/KrishDave1)
-- [Valmik Belgaonkar](https://github.com/valmikGit)
-- [Vedant Mangrulkar](https://github.com/MVedant21)
-- [Abhinav Deshpande](https://www.github.com/Abhinav-gh/)
 
 
 
