@@ -90,4 +90,9 @@ The backend of ImageEditor-Website is powered by Spring Boot, providing a robust
    ```bash
    java -jar target/driveProject-0.0.1-SNAPSHOT.jar
 
+- If something goes wrong, then run the following Maven command.
+
+  ```bash
+  mvn clean install
+
 ## Frontend
