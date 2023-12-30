@@ -6,7 +6,7 @@ import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.service.LoggingService;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 
-public class FlipEffect implements Two_ValueDiscreteEffect{
+public class FlipEffect implements Two_ValueDiscreteEffect {
     private int horizontalFlipValue;
     private int verticalFlipValue;
     @Override
