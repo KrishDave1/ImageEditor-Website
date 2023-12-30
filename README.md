@@ -7,6 +7,7 @@
 - [Backend](#backend)
 - [Usage](#usage)
 - [Running the backend](#runningthebackend)
+- [Frontend]()
 
 ImageEditor-Website is a web application that allows users to edit images using various effects. The application is built with Spring Boot for the backend, utilizes JNI to access C++ libraries for fast image modification, and stores effect logs in MongoDB.
 
