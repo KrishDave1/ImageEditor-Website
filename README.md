@@ -53,7 +53,8 @@ The backend of ImageEditor-Website is powered by **Spring Boot**, providing a ro
 - **User-friendly Interface:** The frontend is designed to be intuitive, enabling users to navigate and interact with the application effortlessly.
 
 ## Challenges Faced
-Please update this with some challenges you faced.
+- After refreshing the logs page, the logs were disappearing. Hence, we felt the need of having a database to store the logs to make them persistent. Thus, we used Mongo DB as our database.
+- Initially we were not able to integrate Mongo DB with our backend. We then cleaned and re installed the Maven project directory which solved the issue.
 
 ## Acknowledgements
 We would like to express our sincere gratitude to our professor and teaching assistants for their invaluable guidance and support throughout the completion of this project.
