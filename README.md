@@ -2,13 +2,14 @@
 
 ## Table of Contents
 
-- [Overview](#introduction)
+- [Overview](#overview)
 - [Features](#features)
-- [Backend Architecture](#BackendArchitecture)
-- [Usage](#usage)
+- [Backend Architecture](#backend-architecture)
+- [Features](#features)
+- [Usage Features](#usage-features)
 - [Installation](#installation)
-- [Backend setup](#Backendsetup)
-- [Frontend](#ImageEffectFrontend)
+- [Backend setup](#backend-setup)
+- [Frontend](#frontend)
 
 ## Overview
 
@@ -50,8 +51,8 @@ Clone the repository:
    ```bash
    git clone https://github.com/KetanGhungralekar/ImageEditor-Website
    ```
-For setting up backend: [Skip to here](#Backend_setup)   
-For setting up frontend: [Skip to here](#Front_end)   
+For setting up backend: [Skip to here](#backend-setup)   
+For setting up frontend: [Skip to here](#frontend-setup)   
 
 
 ## Backend setup
