@@ -15,3 +15,8 @@ public class ImageEffectApplication {
 		SpringApplication.run(ImageEffectApplication.class, args);
 	}
 }
+
+// This code represents a basic Spring Boot application with MongoDB support. It includes annotations to enable Spring Boot
+// features, MongoDB repositories, and automatic dependency injection. The main method starts the Spring Boot application.
+// The injected LogRepository suggests that the application may involve interacting with MongoDB using Spring Data
+// repositories.
