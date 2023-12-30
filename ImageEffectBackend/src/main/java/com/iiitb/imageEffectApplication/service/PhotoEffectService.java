@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.concurrent.*;
 
 
@@ -25,7 +26,8 @@ public class PhotoEffectService {
     private ExecutorService executor;
     private Future<Pixel[][]> imageFuture;
     private Future<Void> loggingFuture;
-
+    
+    
     public ResponseEntity<byte[]> applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
@@ -74,6 +76,7 @@ public class PhotoEffectService {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     public ResponseEntity<byte[]> applyBrightnessEffect(float amount, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
@@ -123,6 +126,7 @@ public class PhotoEffectService {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     public ResponseEntity<byte[]> applyContrastEffect(float amount, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
@@ -221,6 +225,7 @@ public class PhotoEffectService {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
     public ResponseEntity<byte[]> applyGaussianBlurEffect(float radius, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
