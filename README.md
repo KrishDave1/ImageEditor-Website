@@ -13,7 +13,7 @@ ImageEditor-Website is a web application that allows users to edit images using 
 
 ## Features
 
-- **Hue Saturation:** Adjust the hue and saturation of images.
+- **Hue Saturation:** Adjust the hue and saturation of images. 
 - **Brightness:** Modify the brightness of images.
 - **Contrast:** Change the contrast of images.
 - **Flip:** Flip images horizontally or vertically.
