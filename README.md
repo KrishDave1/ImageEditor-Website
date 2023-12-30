@@ -2,14 +2,17 @@
 
 ## Table of Contents
 
-- [Installation](#installation)
+- [Overview](#introduction)
 - [Features](#features)
-- [Backend](#backend)
+- [Backend Architecture](#BackendArchitecture)
 - [Usage](#usage)
-- [Running_The_Backend](#running_the_backend)
+- [Installation](#installation)
+- [Backend setup](#Backendsetup)
 - [Frontend](#ImageEffectFrontend)
 
-ImageEditor-Website is a web application that allows users to edit images using various effects. The application is built with Spring Boot for the backend, utilizes JNI to access C++ libraries for fast image modification, and stores effect logs in MongoDB.
+## Overview
+
+ImageEditor-Website is a sophisticated web application designed for image manipulation, leveraging advanced technologies for both backend and frontend. The backend, powered by Spring Boot, seamlessly integrates with C++ libraries via JNI, ensuring high-performance image processing. MongoDB serves as the storage solution for effect logs, adding robustness to the application
 
 ## Features
 
@@ -25,77 +28,112 @@ ImageEditor-Website is a web application that allows users to edit images using 
 - **Sharpen:** Enhance the sharpness of images.
 - **Dominant Colour:** Identify and display the dominant color in images.
 
-## Backend
+## Backend Architecture
 
-The backend of ImageEditor-Website is powered by Spring Boot, providing a robust foundation for the application. JNI (Java Native Interface) is used to access C++ libraries, ensuring fast and efficient image modification. MongoDB is employed to store logs of the effects applied to images.
+The backend of ImageEditor-Website is powered by **Spring Boot**, providing a robust foundation for the application. 
+- **JNI** (Java Native Interface) is used to access C++ libraries, ensuring fast and efficient image modification. 
+- **MongoDB** is employed to store logs of the effects applied to images.
 
-## Installation
+## Usage features
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/KetanGhungralekar/ImageEditor-Website
-
-## Usage
 
 - Access the ImageEditor-Website through your web browser.
 - Upload an image to the platform.
 - Apply various effects from the provided list.
 - Save or download the edited image.
 - Check the logs section to see your image effect application history.
+## Installation
 
-## Running_The_Backend
+
+Clone the repository:
+
+   ```bash
+   git clone https://github.com/KetanGhungralekar/ImageEditor-Website
+   ```
+For setting up backend: [Skip to here](#Backendsetup)   
+For setting up frontend: [Skip to here](#Frontendsetup)   
+
+
+## Backend setup
+Before proceeding with the backend setup, ensure you have the following prerequisites installed:
+
++ [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install)
+
++ [MongoDB](https://docs.mongodb.com/manual/installation/)
 
 - Navigate to the backend folder.
 
    ```bash
    cd .\ImageEffectBackend\
+   ```
+
 - Start WSL.
 
    ```bash
    wsl
+   ```
 - Clean the project directory.
 
    ```bash
    make clean
+  ```
 - Run the Makefile.
 
    ```bash
    make
+  ```
 - Clean the Maven project directory.
 
    ```bash
    mvn clean
-
+  ```
 - Build the Maven package.
 
    ```bash
    mvn package
+   ```
 - Create a folder for running the Mongo DB server.
 
    ```bash
    mkdir mongo_database
+   ```
 - Open a new terminal and navigate to the recently made folder.
 
    ```bash
    cd .\ImageEffectBackend\mongo_database
+   ```
 - Run the Mongo DB server.
 
    ```bash
    mongod --dbpath . --port 27017
+   ```
 - Now open Mongo DB Compass GUI and press **CONNECT**.
 - Now navigate to the first terminal.
 - Run the SpringBoot backend server.
 
-   ```bash
+  ```bash
    java -jar target/driveProject-0.0.1-SNAPSHOT.jar
+  ```
 
+  This command executes the JAR file, which contains all the compiled Java classes and dependencies needed to run the Spring Boot application. Learn more about [Java JAR files](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jar.html).
 - If something goes wrong, then run the following Maven command.
 
   ```bash
   mvn clean install
+  ```
+Return to [Installation](#Installation)
 
-# ImageEffectFrontend
+## Authors
+
+- [Ketan Ghungralekar](https://www.github.com/KetanGhungralekar/)
+- [Krish Dave](https://github.com/KrishDave1)
+- [Valmik Belgaonkar](https://github.com/valmikGit)
+- [Vedant Mangrulkar](https://github.com/MVedant21)
+- [Abhinav Deshpande](https://www.github.com/Abhinav-gh/)
+
+
+
+# Frontend
 
 ## Overview
 
@@ -136,7 +174,7 @@ The `ImageEffectFrontend` component is a robust Angular-based frontend (version 
 
 - **User-friendly Interface:** The frontend is designed to be intuitive, enabling users to navigate and interact with the application effortlessly.
 
-## Getting Started
+## Frontend setup
 
 ### 1. Clone the repository:
 
@@ -160,6 +198,7 @@ cd .\ImageEffectFrontend\
 ng serve
 ```
 The application should be accessible at http://localhost:4200/ in your web browser.
+Return to [Installation](#Installation)
 
 ### Code Scaffolding
 Generate a new component using the following command:
@@ -191,7 +230,6 @@ For more help on the Angular CLI, use the following command:
 ng help
 ```
 or you can go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli)
-  page.
-
+page.
 
 
