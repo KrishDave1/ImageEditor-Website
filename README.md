@@ -250,7 +250,7 @@ page.
 
 ### Contributions
 
-- Valmik : Integrated Mongo DB with the SpringBoot backend. Made changes in the Makefile to accommodate the Dominant Colour effect. Made the required CPP library for the Dominant colour effect and implemented the required JNI code. Effects implemented are Brightness and Dominant Colour.
+- Valmik : Integrated Mongo DB with the SpringBoot backend. Made changes in the Makefile to accommodate the Dominant Colour effect. Made the required CPP library, consisting of the appropriate CPP header file and the file containing the CPP function for processing the image, for the Dominant colour effect and implemented the required JNI code. Effects implemented are Brightness and Dominant Colour.
 - Krish : Resolved all the issues related to project setup, Maven setup, WSL setup and GitHub. Helped in resolving errors faced while implementing multithreading. Made changes in the Makefile to accommodate the Dominant Colour effect. Effects implemented are Hue Saturation, Gaussian blur and Sepia.
 - Ketan : Cracked the logic of how to implement multithreading and implemented it in the Rotation effect which the others then referred to while implementing the effects assigned to them. Made a new interface required for the Rotation effect class. Effects implemented are Rotation and Sharpen.
 - Vedant : Did all the additional documentation required for all the effects and the project in general. Tested the functionality of all the effects. Effects implemented - Invert and Flip.
