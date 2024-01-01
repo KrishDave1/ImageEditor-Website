@@ -205,7 +205,7 @@ cd .\ImageEffectFrontend\
 ### 4. Start the development server:
 
 ```bash
-ng serve
+npm start
 ```
 The application should be accessible at http://localhost:4200/ in your web browser.
 Return to [Installation](#image-editor-web-app-installation)
