@@ -58,6 +58,7 @@ The backend of ImageEditor-Website is powered by **Spring Boot**, providing a ro
 - Initially we were not able to integrate Mongo DB with our backend. We then cleaned and re installed the Maven project directory which solved the issue.
 - The Dominant Colour effect was initially not present in the Makefile. We added the necessary statements in the Makefile to solve the issue. We made a new folder in the CPP libraries for the Dominant Colour effect. In that folder we made the DominantColourInterface.cpp file which has the required JNI code.
 - Initially, we used Executors.callable() method to implement multithreading. However, it did not work. Thus, we switched to using Callable and Future to implement multithreading.
+- The Flip effect and Hue Saturation have 2 values which are being POSTed by the frontend. However, in the baseEffects package, all the interfaces expected either a single value or no value. Thus, we felt the need to make 2 new interfaces : one for handling 2 discrete values (for Flip effect) and the other for handling 2 parameterizable values (for Hue Saturation effect).
 
 ## Acknowledgements
 We would like to express our sincere gratitude to our professor and teaching assistants for their invaluable guidance and support throughout the completion of this project.
@@ -251,8 +252,8 @@ page.
 
 ### Contributions
 
-- Valmik : Integrated Mongo DB with the SpringBoot backend to make the logs persistent. Made changes in the Makefile to accommodate the Dominant Colour effect. Made the required CPP library, consisting of the appropriate CPP header file and the file containing the CPP function for processing the image, for the Dominant colour effect and implemented the required JNI code. Effects implemented are Brightness and Dominant Colour.
+- Valmik : Integrated Mongo DB with the SpringBoot backend to make the logs persistent. Helped in making the README.md file. Made changes in the Makefile to accommodate the Dominant Colour effect. Made the required CPP library, consisting of the appropriate CPP header file and the file containing the CPP function for processing the image, for the Dominant colour effect and implemented the required JNI code. Effects implemented are Brightness and Dominant Colour.
 - Krish : Resolved all the issues related to project setup, Maven setup, WSL setup and GitHub. Helped in resolving errors faced while implementing multithreading. Made changes in the Makefile to accommodate the Dominant Colour effect. Made a new interface, named TwoValueParameterizableEffect, required for the Hue Saturation effect. Effects implemented are Hue Saturation and Gaussian blur.
-- Ketan : Cracked the logic of how to implement multithreading and implemented it in the Flip effect which the others then referred to while implementing the effects assigned to them. Made a new interface, named Two_ValueDiscreteEffect, required for the Flip effect class. Effects implemented are Flip and Sharpen.
-- Vedant : Did all the additional documentation required for all the effects and the project in general. Tested the functionality of all the effects. Effects implemented are Invert, Sepia and Rotation.
+- Ketan : Cracked the logic of how to implement multithreading and implemented it in the Flip effect which the others then referred to while implementing the effects assigned to them. Made a new interface, named Two_ValueDiscreteEffect, required for the Flip effect class. Effects implemented are Flip and Rotation.
+- Vedant : Did all the additional documentation required for all the effects and the project in general. Helped in making the README.md file. Tested the functionality of all the effects. Effects implemented are Invert, Sepia and Sharpen.
 - Abhinav : Made the README.md file. Tested the functionality of all the effects. Calibrated the filters by changing the CPP code wherever necessary. Altered the sensitivity of the sliders wherever required. Effects implemented are Contrast and Grayscale.
