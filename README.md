@@ -54,6 +54,7 @@ The backend of ImageEditor-Website is powered by **Spring Boot**, providing a ro
 - **User-friendly Interface:** The frontend is designed to be intuitive, enabling users to navigate and interact with the application effortlessly.
 
 ## Challenges Faced
+- Maven was not working directly with 'mvn' command in some laptops.Hence we first installed dos2unix which helped us in using maven using the command './mvnw'
 - After refreshing the logs page, the logs were disappearing. Hence, we felt the need of having a database to store the logs to make them persistent. Thus, we used Mongo DB as our database.
 - Initially we were not able to integrate Mongo DB with our backend. We then cleaned and re installed the Maven project directory which solved the issue.
 - The Dominant Colour effect was initially not present in the Makefile. We added the necessary statements in the Makefile to solve the issue. We made a new folder in the CPP libraries for the Dominant Colour effect. In that folder we made the DominantColourInterface.cpp file which has the required JNI code.
